@@ -3,22 +3,23 @@ Programmkonzept WRO 2019
 ========================
 
 
-1.	Trash Aufräumen
+1.	Trash AufrÃ¤umen
 ------------------------
-1.1.	-90° drehen, bis 1. Line (und ein bisschen weiter) fahren, 90° drehen;
-1.2.	4 Linien Abzählen, 90° drehen, Linefollower bis zur evtl. Lampe;
-1.3	Linefollower
+1.1.	-90Â° drehen, bis 1. Line (und ein bisschen weiter) fahren, 90Â° drehen;
+1.2.	4 Linien AbzÃ¤hlen, 90Â° drehen, Linefollower bis zur evtl. Lampe;
+1.3.  Linefollower bis zur nÃ¤chsten Lampe;
+1.4.  Farbe checken, falls eine da, aufnehmen;
 
 
 2.	Gelben Lampen versorgen
 -------------------------------
 
 
-3.	Grüne Lampen versorgen
+3.	GrÃ¼ne Lampen versorgen
 ------------------------------
 
 
-4.	Blau & Rot scannen & verräumen
+4.	Blau & Rot scannen & verrÃ¤umen
 --------------------------------------
 
 
