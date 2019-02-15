@@ -11,13 +11,24 @@ Programmkonzept WRO 2019
 1.4 	gerade farend 4 Linien Abzählen;
 1.5   90° drehen;
 1.6   Linefollower bis zur area 1G;                       1g steht für 1 gün
-1.7   presenz einer lampe checken;
+1.7   presenz einer lampe checken (speichern als s1);
 1.8   if keine da;
   1.8.1 -90°drehen;
-  1.8.2 Linefollower bis AREA 1Y                          1Y = 1 gelb
+  1.8.2 Linefollower bis AREA 1Y;                         1Y = 1 gelb
   1.8.3 gabel heben;
-  1.8.4 180°drehen;
-  1.8.5 Linfllower
+  1.8.4  rLinfllower bis AREA 1G
+  1.8.5 -90 grad drehung
+1.9   else
+  1.9.1 gabel heben
+  1.9.2 180° drehung
+1.10  Linfollower bis AREA 1B                             1B = 1 blau
+1.11  gabel senken
+1.12  presenz einer lampe checken (speichern als s2);
+1.13  gabel heben
+1.14  rLinefllower bis K2                                 sihe plan
+1.15  -90° drehung
+1.16  linefllower bis K4
+
 
 2.	Gelben Lampen versorgen
 -------------------------------
