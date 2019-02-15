@@ -10,28 +10,66 @@ Programmkonzept WRO 2019
 1.3   90° drehen;
 1.4 	gerade farend 4 Linien Abzählen;
 1.5   90° drehen;
-1.6   Linefollower bis zur area 1G;                       1g steht für 1 gün
+1.6   Linefollower bis zur area 1G;                        1g steht für 1 gün
 1.7   presenz einer lampe checken (speichern als s1);
 1.8   if keine da;
-  1.8.1 -90°drehen;
-  1.8.2 Linefollower bis AREA 1Y;                         1Y = 1 gelb
-  1.8.3 gabel heben;
-  1.8.4  rLinfllower bis AREA 1G
-  1.8.5 -90 grad drehung
-1.9   else
-  1.9.1 gabel heben
-  1.9.2 180° drehung
-1.10  Linfollower bis AREA 1B                             1B = 1 blau
-1.11  gabel senken
+  1.8.1  -90°drehen;
+  1.8.2  Linefollower bis AREA 1Y;                          1Y = 1 gelb
+  1.8.3  gabel heben;
+  1.8.4  rLinfllower bis AREA 1G;
+  1.8.5  -90 grad drehung;
+1.9   else;
+  1.9.1  gabel heben;
+  1.9.2  180° drehung;
+1.10  Linfollower bis AREA 1B;                             1B = 1 blau
+1.11  gabel senken;
 1.12  presenz einer lampe checken (speichern als s2);
-1.13  gabel heben
-1.14  rLinefllower bis K2                                 sihe plan
-1.15  -90° drehung
-1.16  linefllower bis K4
-
-
+1.13  gabel heben;
+1.14  rLinefollower bis  K2;                                 sihe plan
+1.15  -90° drehung;
+1.16  Linefollower bis K4;
+1.17  if s2 = false;
+  1.17.1 90° drehung;
+  1.17.2 Linefollower bis AREA 1R;
+  1.17.3 gabel heben;
+  1.17.4 180° drehung;
+  1.17.5 Linefollower bis TRASH;
+1.18 else;
+  1.18.1 -90° drehung;
+  1.18.2 Linefollower bis TRASH;
+1.19 gabel senken;
+  
+  
 2.	Gelben Lampen versorgen
 -------------------------------
+2.1   rLinefollower bis K4
+2.2   -90° drehung
+2.3   Linefollower bis K1
+2.4   90° drehung
+2.5   linefollower bis I
+2.6   if S1 = true
+  2.6.1   -90° drehung
+  2.6.2   Linefollower bis j
+  2.6.3   gabel heben;
+  2.6.4   180° drehung
+  2.6.5   Linefollower bis i
+  2.6.7   90° drehung
+2.7   else
+  2.7.1   gabel heben
+  2.7.2   180° drehung
+2.8   Linefollower bis K1
+2.9   -90 Drehung
+2.10  Linefollower bis k2
+2.12  -90 drehung
+2.13  Linefollower bis AREA 1G
+2.14  if S1 = true
+  2.14.1  Linefollower bis AREA 1Y
+  2.14.2  gabel senken
+  2.14.3  3 cm rükwertz faren
+  2.14.5  gabel heben
+  2.14.6  180° drehung
+  2.14.7  Linefollower bis K6
+  2.14.8  -90° drehung
 
 
 3.	Grüne Lampen versorgen
