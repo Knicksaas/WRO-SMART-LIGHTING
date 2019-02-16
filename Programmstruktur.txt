@@ -100,11 +100,28 @@ Programmkonzept WRO 2019
 3.20  Linefollower bis AREA 1G
 3.21  -90° drehung
 3.22  Linefollower bis K5
-3.23  fi si = false
+3.23  if si = false
   3.23.1  gabel senken
   3.23.2  3 cm rükwertz faren
   3.23.3  gabel heben
 3.24  -90° drehung
+3.25  Fahren bis Barriere
+3.26  Gabel senken
+3.27  Rückwärts bis Line
+3.28  if s1 == false
+  3.29  90° drehung
+  3.30  Linefollower K6
+  3.31  Gabel Heben
+  3.32  180° drehen
+  3.33  Linefollower bis Area 1 g
+  3.34  90° drehung 
+  3.35  ein bisschen fahren
+  3.36  180° drehen
+  3.37  Gabel senken
+3.38  else
+  3.39  90° drehung
+  3.40  Linefollower bis area 1 g
+  3.41  -90° drehung
 
 
 
