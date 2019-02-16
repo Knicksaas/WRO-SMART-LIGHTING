@@ -187,8 +187,62 @@ Programmkonzept WRO 2019
 5.4 Linefollower bis H
 5.5 -90° drehen
 5.6 Linefollower bis E
-5.7
-
+5.7 -90° drehen 
+5.8 Linefollower bis K1 
+5.9 90° drehen
+5.10 Linefollower bis K3
+5.11 if S2= true Linefollower bis K4
+  5.11.1 -90° drehen
+  5.11.2 Linefollwer bis 1 R 
+  5.11.3 Gabel senken
+  5.11.4 3cm Rückwärts 
+  5.11.5 Gabel heben 
+  5.11.6 180° drehen
+  5.11.7 Linefollower bis K4
+  5.11.8 90° drehen
+  5.11.9 Linefollower bis K3
+  5.11.10 7cm Rückwärts
+  5.11.11 90° drehen
+5.12 else 5cm fahren     
+  5.12.1 -90° drehen  
+5.13 fahren bis Barriere
+5.14 Gabel senken
+5.15 Rückwärts bis Linie
+5.16 -90° drehen 
+5.17 Linefollower bis K1
+5.18 -90° drehen
+5.19 Linefollower bis A
+5.19 -90° 
+5.20 Linefollower bis D
+5.21 Gabel heben 
+5.22 -90° drehen
+5.23 Linefollower bis H
+5.24 -90° drehen
+5.25 Linefollower bis E
+5.26 -90° drehen 
+5.27 Linefollower bis K1
+5.28 90° drehen
+5.29 Linefollower bis K2
+5.30 if S=false
+  5.30.1 -90° drehen
+  5.30.2 Linefollower bis 1 B
+  5.30.3 Gabel senken
+  5.30.4 3cm Rückwärts
+  5.30.5 Gabel heben 180° drehen
+  5.30.6 Linefollower bis K2
+  5.30.7 -90° drehen
+5.31 Linefollower bis K3
+5.32 7cm Rückwärts
+5.33. -90° drehen
+5.34 fahren bis Barriere 
+5.35 Gabel senken
 
 6.	Zielbereich aufsuchen
 -----------------------------
+6.1 Rückwärts bis Linie
+6.2 -90° drehen 
+6.3 Linefollower bis K1
+6.4 Linefollower bis I
+6.5 90° drehen
+6.6 Linefollower bis Ziel
+Feeeeeeeeeeeeeeeeeeeeeeertig!!!!!
