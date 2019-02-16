@@ -8,3 +8,9 @@ This is the WRO Smart Lighting project from the team "NTE Inovation". We program
   - Programmstuktur fertig!
   
 Treffen:  16.2.19 12:04 Baden- Boniswil 12:52
+Treffen:  9.3.19 
+Treffen:  16.3.19 
+Treffen:  23.3.19
+Treffen:  6.4.19
+Treffen:  11.4.19
+WRO-Contest: 18.4.19
