@@ -5,5 +5,6 @@ This is the WRO Smart Lighting project from the team "NTE Inovation". We program
 
 Änderungen:
   - Dem Linefollower wurde ein P-I Regler implementiert und kann jetzt mehr oder weniger der Line folgen.
+  - Programmstuktur fertig!
   
 Treffen:  16.2.19 12:04 Baden- Boniswil 12:52
