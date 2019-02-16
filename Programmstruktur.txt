@@ -124,10 +124,71 @@ Programmkonzept WRO 2019
   3.41  -90° drehung
 
 
+4.	Blau & Rot scannen 
+-----------------------
+4.1 10cm rückwärts
+4.2 180° drehung
+4.3 Linefollower bis K2
+4.4 -90° drehung
+4.5 Linefollower bis K1
+4.6 Fahren bis A
+4.7 scannen -> if red 
+  4.7.1 Gabel heben
+  4.7.2 A=red
+4.8 else if nothing
+  4.8.1 A=nothing
+4.9 else
+  4.9.1 A=blue
+4.10 10 cm rückwärts
+4.11 -90° drehen
+4.12 fahren bis nächste Linie
+4.13 90° drehen 
+4.14 Linefollower bis B
+  4.14.1 if A= red gabel senken
+4.15 scannen -> if red 
+  4.15.1 Gabel heben
+  4.15.2 B=red
+4.16 else if nothing
+  4.16.1 B=nothing
+4.17 else
+  4.17.1 B=blue
+4.18 10 cm rückwärts
+4.19 -90° drehen
+4.20 fahren bis nächste Linie
+4.21 90° drehen 
+4.22 Linefollower bis C  
+  4.22.1 if b=red Gabel senken
+4.23 scannen -> if red 
+  4.23.1 Gabel heben
+  4.23.2 C=red
+4.24 else if nothing
+  4.24.1 C=nothing
+4.25 else
+  4.25.1 C=blue
+4.26 10 cm rückwärts
+4.27 -90° drehen
+4.28 fahren bis nächste Linie
+4.29 90° drehen 
+4.30 Linefollower bis D
+  4.30.1 if C=red Gabel senken
+4.31 scannen -> if red 
+  4.31.1 Gabel heben
+  4.31.2 C=red
+4.32 else if nothing
+  4.32.1 C=nothing
+4.33 else
+  4.33.1 C=blue
+  
+5. Rote und Blau verräumen
+--------------------------
+5.1 if C=!red Gabel heben
+5.2 10 cm rückwärts fahren 
+5.3 180° drehen
+5.4 Linefollower bis H
+5.5 -90° drehen
+5.6 Linefollower bis E
+5.7
 
-4.	Blau & Rot scannen & verräumen
---------------------------------------
 
-
-5.	Zielbereich aufsuchen
+6.	Zielbereich aufsuchen
 -----------------------------
