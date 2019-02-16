@@ -69,11 +69,43 @@ Programmkonzept WRO 2019
   2.14.5  gabel heben
   2.14.6  180° drehung
   2.14.7  Linefollower bis K6
-  2.14.8  -90° drehung
-
+  2.14.8  90° drehung
+2.15 else
+  2.15.1  Linefollower bis K6
+  2.15.2  -90° drehung
+2.16  Linefollower bis bariere
+2.17  gabel senken
 
 3.	Grüne Lampen versorgen
 ------------------------------
+3.1   10 cm rükwärtz faren
+3.2   -90° drehung
+3.3   Linefollower bis AREA 1G
+3.4   90° drehung
+3.5   Linefollower bis K2
+3.6   -90° drehung
+3.7   Linefollower bis K1
+3.8   -90 drehung
+3.9   Linefollower bis E
+3.10  90° drehung
+3.11  Linefollower bis G
+3.12  gabel heben
+3.13  180° drehung
+3.14  Linefollower bis E
+3.15  -90°drehung
+3.16  Linefollower bis K1
+3.17  90° dregung
+3.18  Linefollower bis K2
+3.19  90° Drehung
+3.20  Linefollower bis AREA 1G
+3.21  -90° drehung
+3.22  Linefollower bis K5
+3.23  fi si = false
+  3.23.1  gabel senken
+  3.23.2  3 cm rükwertz faren
+  3.23.3  gabel heben
+3.24  -90° drehung
+
 
 
 4.	Blau & Rot scannen & verräumen
