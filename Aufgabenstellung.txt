@@ -17,4 +17,7 @@ Elias:
   - Box für Tim besorgen
   
 Abgeschlossenes:
-  Code-Sharing Platform finden (Niklas)
+  Code-Sharing Plattform finden (Niklas)
+  Pseudo-Code/Strukturierung (Tim,Elias)
+  Box für Tim besorgen (Elias)
+  Anleitung im DigitalDesigner (Elias)
