@@ -24,7 +24,7 @@ public class StopAtNextLine {
 		
 		while(!foundALine) {
 			lic.checkSensor();
-			if(lic.getIntensity() < 0.10) {
+			if(lic.getIntensity() < 0.06) {
 				foundALine = true;
 				mLeft.setSpeed(0);
 				mRight.setSpeed(0);

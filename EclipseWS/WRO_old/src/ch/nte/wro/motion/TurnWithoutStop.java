@@ -5,7 +5,7 @@ import ch.nte.wro.status.RoboData;
 import lejos.hardware.lcd.LCD;
 import lejos.robotics.RegulatedMotor;
 
-public class Turn {
+public class TurnWithoutStop {
 	
 	private float angle;
 	private int speed;
@@ -13,16 +13,14 @@ public class Turn {
 	private RegulatedMotor mRight;
 	private float anfangswertSensor = 0;
 	
-	public Turn(int speed, float angle, RegulatedMotor mLeft, RegulatedMotor mRight) {
-		mLeft.setSpeed(speed);
-		mRight.setSpeed(speed);
+	public TurnWithoutStop(int speed, float angle, RegulatedMotor mLeft, RegulatedMotor mRight) {
 		this.angle = angle;
 		this.speed = speed;
 		this.mLeft = mLeft;
 		this.mRight = mRight;
 		exec();
 	}
-
+	
 	private void exec() {
 		GyroSensorChecker gs = new GyroSensorChecker();
 		gs.checkSensor();
@@ -35,27 +33,23 @@ public class Turn {
 		
 		if(angle<anfangswertSensor) {
 			if(RoboData.invertMotorDirection) {
-				mRight.forward();
-				mLeft.backward();
-				mRight.setSpeed(speed);
-				mLeft.setSpeed(speed);
-			} else {
+				mRight.setSpeed(speed/2);
 				mRight.backward();
+				mLeft.backward();
+			} else {
+				mRight.setSpeed(speed/2);
+				mRight.forward();
 				mLeft.forward();
-				mRight.setSpeed(speed);
-				mLeft.setSpeed(speed);
 			}
 		} else {
 			if(RoboData.invertMotorDirection) {
+				mLeft.setSpeed(speed/2);
 				mRight.backward();
-				mLeft.forward();
-				mRight.setSpeed(speed);
-				mLeft.setSpeed(speed);
-			} else {
-				mRight.forward();
 				mLeft.backward();
-				mRight.setSpeed(speed);
-				mLeft.setSpeed(speed);
+			} else {
+				mLeft.setSpeed(speed/2);
+				mRight.forward();
+				mLeft.forward();
 			}
 		}
 		gs.checkSensor();

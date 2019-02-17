@@ -1,5 +1,6 @@
 package ch.nte.wro.main;
 
+import ch.nte.wro.linefollower.Linefollower2;
 import ch.nte.wro.status.RoboData;
 import lejos.hardware.motor.EV3LargeRegulatedMotor;
 import lejos.robotics.RegulatedMotor;
@@ -11,6 +12,6 @@ public class Main {
 	public static void main(String[] args) {
 		RegulatedMotor mLeft = new EV3LargeRegulatedMotor(RoboData.portMotorLeft);
 		RegulatedMotor mRight = new EV3LargeRegulatedMotor(RoboData.portMotorRight);
-		new TrashAufräumen(mLeft, mRight, speed);
+		new Linefollower2(speed, mLeft, mRight);
 	}
 }
