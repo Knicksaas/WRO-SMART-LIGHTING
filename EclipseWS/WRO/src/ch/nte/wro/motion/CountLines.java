@@ -26,7 +26,7 @@ public class CountLines {
 		
 		while(actualLinesPassed <= lines) {
 			lic.checkSensor();
-			if(lic.getIntensity() < 0.09) {
+			if(lic.getIntensity() < 0.07) {
 				actualLinesPassed++;
 				Sound.beep();
 				if(actualLinesPassed == lines) {

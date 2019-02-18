@@ -11,9 +11,11 @@ public class Linefollower2 {
 	private RegulatedMotor mLeft;
 	private RegulatedMotor mRight;
 	private boolean running = false;
-	private float kp = 50;
+	private int kp;
+	private int errBefore;
 
-	public Linefollower2(int speed, RegulatedMotor mLeft, RegulatedMotor mRight) {
+	public Linefollower2(int speed, RegulatedMotor mLeft, RegulatedMotor mRight, int kp) {
+		this.kp = kp;
 		this.speed = speed;
 		this.mLeft = mLeft;
 		this.mRight = mRight;
@@ -42,13 +44,25 @@ public class Linefollower2 {
 			float b = lRight.getIntensity();
 			float err = a-b;
 			
+			if(errBefore == 0) {
+				if(err < 0) {
+					
+				}
+			} else {
+				if(err > 0) {
+					
+				}
+			}
+			
 			if(err > 0) {
 				mRight.setSpeed(Math.round(speed-(err*kp)));
 				mLeft.setSpeed(speed);
+				errBefore = 0;
 				//Evtl delay
 			} else {
 				mLeft.setSpeed(Math.round(speed+(err*kp)));
 				mRight.setSpeed(speed);
+				errBefore = 1;
 				//Evtl delay
 			}
 		}
