@@ -1,0 +1,59 @@
+package ch.nte.wro.linefollower;
+
+import ch.nte.wro.motion.Turn;
+import ch.nte.wro.sensors.LightIntensitySensorChecker;
+import ch.nte.wro.status.RoboData;
+import lejos.hardware.motor.EV3LargeRegulatedMotor;
+import lejos.robotics.RegulatedMotor;
+
+public class Linefollower {
+	
+	private int speed;
+	private boolean runing;
+	private float lineIntensity = -1F;
+	
+	public Linefollower(int speed) {
+		this.speed = speed;
+		runing = true;
+		followLine();
+	}
+	
+	private void followLine() {
+		RegulatedMotor m1 = new EV3LargeRegulatedMotor(RoboData.portMotorLeft);
+		RegulatedMotor m2 = new EV3LargeRegulatedMotor(RoboData.portMotorRight);
+		LightIntensitySensorChecker l1 = new LightIntensitySensorChecker();
+		
+		m1.setSpeed(speed);
+		m2.setSpeed(speed);
+		
+		if(RoboData.invertMotorDirection) {
+			m1.backward();
+			m2.backward();
+		} else {
+			m1.forward();
+			m2.forward();
+		}
+		
+		while(runing) {
+			l1.checkSensor();
+			if(lineIntensity < 0F) {
+				if(l1.getIntensity() < 18) {
+					//Stösst auf Line
+					m1.setSpeed(0);
+					m2.setSpeed(0);
+					m1.stop();
+					m2.stop();
+					m1.close();
+					m2.close();
+					LineIntensityChecker lic1 = new LineIntensityChecker(50, 15, 0);
+					LineIntensityChecker lic2 = new LineIntensityChecker(50, -30, lic1.getLowestIntensity());
+					lineIntensity = lic2.getLowestIntensity();
+				}		
+			}
+		}
+	}
+	
+	public void stop() {
+		runing = false;
+	}
+}

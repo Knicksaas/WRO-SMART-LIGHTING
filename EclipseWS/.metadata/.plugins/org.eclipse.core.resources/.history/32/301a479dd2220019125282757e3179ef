@@ -1,0 +1,75 @@
+package ch.nte.wro.linefollower;
+
+import ch.nte.wro.sensors.GyroSensorChecker;
+import ch.nte.wro.sensors.LightIntensitySensorChecker;
+import ch.nte.wro.status.RoboData;
+import lejos.hardware.lcd.LCD;
+import lejos.hardware.motor.EV3LargeRegulatedMotor;
+import lejos.robotics.RegulatedMotor;
+import lejos.utility.Delay;
+
+public class LineIntensityChecker {
+	
+	private float angel;
+	private int speed;
+	
+	public LineIntensityChecker(int speed, float angle) {
+		this.angel = angle;
+		this.speed = speed;
+		exec();
+	}
+
+	private void exec() {
+		RegulatedMotor mRight = new EV3LargeRegulatedMotor(RoboData.portMotorRight);
+		RegulatedMotor mLeft = new EV3LargeRegulatedMotor(RoboData.portMotorLeft);
+		GyroSensorChecker gs = new GyroSensorChecker();
+		LightIntensitySensorChecker li = new LightIntensitySensorChecker();
+		
+		mRight.setSpeed(speed);
+		mLeft.setSpeed(speed);
+		
+		if(angel<0) {
+			if(RoboData.invertMotorDirection) {
+				mRight.forward();
+				mLeft.backward();
+			} else {
+				mRight.backward();
+				mLeft.forward();
+			}
+		} else {
+			if(RoboData.invertMotorDirection) {
+				mRight.backward();
+				mLeft.forward();
+			} else {
+				mRight.forward();
+				mLeft.backward();
+			}
+		}
+		gs.checkSensor();
+		LCD.clear();
+		LCD.drawString(String.valueOf(gs.getAngle()), 0, 0);
+		
+		if(angel < 0) {
+			while(gs.getAngle() > angel) {
+				gs.checkSensor();
+				LCD.clear();
+				LCD.drawString(String.valueOf(gs.getAngle()), 1, 0);
+				Delay.msDelay(200);
+			}
+		} else {
+			while(gs.getAngle() < angel) {
+				gs.checkSensor();
+				LCD.clear();
+				LCD.drawString(String.valueOf(gs.getAngle()), 1, 0);
+				Delay.msDelay(200);
+			}
+		}
+		
+		mRight.setSpeed(0);
+		mLeft.setSpeed(0);
+		mRight.stop();
+		mLeft.stop();
+		mRight.close();
+		mLeft.close();
+	}
+}

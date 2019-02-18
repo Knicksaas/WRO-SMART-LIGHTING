@@ -1,0 +1,31 @@
+package ch.nte.wro.motion;
+
+import ch.nte.wro.sensors.LightIntensitySensorChecker;
+import ch.nte.wro.status.GlobalSensors;
+import lejos.robotics.RegulatedMotor;
+
+public class AdjustWithLine {
+	
+	private RegulatedMotor mLeft;
+	private RegulatedMotor mRight;
+	private int worth1;
+	private int worth2;
+	
+	
+	public AdjustWithLine(RegulatedMotor mLeft, RegulatedMotor mRight) {
+		this.mLeft = mLeft;
+		this.mRight = mRight;
+		adjust();
+	}
+	
+	private void adjust() {
+		LightIntensitySensorChecker l1 = new LightIntensitySensorChecker(GlobalSensors.colorSensorLeft);
+		LightIntensitySensorChecker l2 = new LightIntensitySensorChecker(GlobalSensors.colorSensorRight);
+		
+		l1.checkSensor();
+		l2.checkSensor();
+		
+		
+	}
+
+}

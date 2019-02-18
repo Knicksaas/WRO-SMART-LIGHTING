@@ -1,0 +1,20 @@
+package ch.nte.wro.main;
+
+import lejos.robotics.RegulatedMotor;
+
+public class TrashAufräumen {
+	
+	private RegulatedMotor mLeft;
+	private RegulatedMotor mRight;
+	private int speed;
+	
+	public TrashAufräumen(RegulatedMotor mLeft, RegulatedMotor mRight, int speed) {
+		this.mLeft = mLeft;
+		this.mRight = mRight;
+		this.speed = speed;
+		driveToArea1Green();
+	}
+	private void driveToArea1Green() {
+		
+	}
+}

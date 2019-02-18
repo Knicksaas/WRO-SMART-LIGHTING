@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<session version="1.0">
+<refactoring comment="Copy 6 packages to &apos;WRO_new/src&apos;&#x0D;&#x0A;- Original project: &apos;WRO&apos;&#x0D;&#x0A;- Destination element: &apos;WRO_new/src&apos;&#x0D;&#x0A;- Original elements:&#x0D;&#x0A;     WRO/src/ch.nte.wro.motion&#x0D;&#x0A;     WRO/src/ch.nte.wro.status&#x0D;&#x0A;     WRO/src/ch.nte.wro.main&#x0D;&#x0A;     WRO/src/ch.nte.wro.test&#x0D;&#x0A;     WRO/src/ch.nte.wro.sensors&#x0D;&#x0A;     WRO/src/ch.nte.wro.linefollower" description="Copy packages" destination="=WRO_new/src" element1="/src&lt;ch.nte.wro.motion" element2="/src&lt;ch.nte.wro.status" element3="/src&lt;ch.nte.wro.main" element4="/src&lt;ch.nte.wro.test" element5="/src&lt;ch.nte.wro.sensors" element6="/src&lt;ch.nte.wro.linefollower" flags="589830" fragments="6" id="org.eclipse.jdt.ui.copy" policy="org.eclipse.jdt.ui.copyPackages" stamp="1550329953190" version="1.0"/>
+</session>
