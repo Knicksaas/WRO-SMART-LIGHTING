@@ -4,80 +4,62 @@ import ch.nte.wro.sensors.LightIntensitySensorChecker;
 import ch.nte.wro.status.GlobalSensors;
 import ch.nte.wro.status.RoboData;
 import lejos.robotics.RegulatedMotor;
-import lejos.utility.Delay;
 
 public class Linefollower {
 	
-	private float grundWert = 0.28F;
 	private int speed;
 	private RegulatedMotor mLeft;
 	private RegulatedMotor mRight;
-	private boolean running = false;
-
-	public Linefollower(int speed, RegulatedMotor mLeft, RegulatedMotor mRight) {
+	private boolean running = true;
+	private float kp;
+	private float ki;
+	private float outI = 0;
+	
+	public Linefollower(int speed, RegulatedMotor mLeft, RegulatedMotor mRight, float kp, float ki) {
 		this.speed = speed;
 		this.mLeft = mLeft;
 		this.mRight = mRight;
+		this.kp = kp;
+		this.ki = ki;
 		followLine();
 	}
 	
 	private void followLine() {
 		
 		LightIntensitySensorChecker lLeft = new LightIntensitySensorChecker(GlobalSensors.colorSensorLeft);
-		LightIntensitySensorChecker lRight = new LightIntensitySensorChecker(GlobalSensors.colorSensorRight);
-		
-		running = true;
 		
 		mLeft.setSpeed(speed);
 		mRight.setSpeed(speed);
-	
-		if(!RoboData.invertMotorDirection) {
-			mLeft.forward();
-			mRight.forward();
-		} else {
+		if(RoboData.invertMotorDirection) {
 			mLeft.backward();
 			mRight.backward();
+			mLeft.setSpeed(speed);
+			mRight.setSpeed(speed);
+		} else {
+			mLeft.forward();
+			mRight.forward();
+			mLeft.setSpeed(speed);
+			mRight.setSpeed(speed);
 		}
 		
 		while(running) {
 			lLeft.checkSensor();
-			lRight.checkSensor();
 			
-			if(lLeft.getIntensity() > grundWert) {
-				mRight.setSpeed(0);
-				//mRight.stop();
-				while(lLeft.getIntensity() <= grundWert) {
-					lLeft.checkSensor();
-				}
+			float outP = (0.42F - lLeft.getIntensity())*kp;
+			outI = outI + (0.42F - lLeft.getIntensity())*ki;
+			
+			int out = Math.round(outP + outI);
+			
+			if(out < 0) {
+				mLeft.setSpeed(speed-out);
 				mRight.setSpeed(speed);
-				if(!RoboData.invertMotorDirection) {
-					mRight.forward();
-				} else {
-					mRight.backward();
-				}
-			}
-			
-			if(lRight.getIntensity() > grundWert) {
-				mLeft.setSpeed(0);
-				//mLeft.stop();
-				while(lRight.getIntensity() <= grundWert) {
-					lRight.checkSensor();
-				}
+				//Evtl delay
+			} else {
+				mRight.setSpeed(speed - out);
 				mLeft.setSpeed(speed);
-				if(!RoboData.invertMotorDirection) {
-					mLeft.forward();
-				} else {
-					mLeft.backward();
-				}
+				//Evtl delay
 			}
 			
-			if((lLeft.getIntensity() > 0.50) && (lRight.getIntensity() > 0.50)) {
-				mLeft.setSpeed(0);
-				mRight.setSpeed(0);
-				mLeft.stop();
-				mRight.stop();
-				Delay.msDelay(1000);;
-			}
 		}
 	}
 }

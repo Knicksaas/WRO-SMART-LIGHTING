@@ -3,7 +3,9 @@ package ch.nte.wro.linefollower;
 import ch.nte.wro.sensors.LightIntensitySensorChecker;
 import ch.nte.wro.status.GlobalSensors;
 import ch.nte.wro.status.RoboData;
+import lejos.hardware.lcd.LCD;
 import lejos.robotics.RegulatedMotor;
+import lejos.utility.Delay;
 
 public class Linefollower2 {
 	
@@ -12,10 +14,12 @@ public class Linefollower2 {
 	private RegulatedMotor mRight;
 	private boolean running = false;
 	private int kp;
-	private int errBefore;
+	private float ki;
+	private float errI = 0;
 
-	public Linefollower2(int speed, RegulatedMotor mLeft, RegulatedMotor mRight, int kp) {
+	public Linefollower2(int speed, RegulatedMotor mLeft, RegulatedMotor mRight, int kp, float ki) {
 		this.kp = kp;
+		this.ki = ki;
 		this.speed = speed;
 		this.mLeft = mLeft;
 		this.mRight = mRight;
@@ -31,9 +35,13 @@ public class Linefollower2 {
 		if(RoboData.invertMotorDirection) {
 			mLeft.backward();
 			mRight.backward();
+			mLeft.setSpeed(speed);
+			mRight.setSpeed(speed);
 		} else {
 			mLeft.forward();
 			mRight.forward();
+			mLeft.setSpeed(speed);
+			mRight.setSpeed(speed);
 		}
 		
 		while(running) {
@@ -42,27 +50,22 @@ public class Linefollower2 {
 			
 			float a = lLeft.getIntensity();
 			float b = lRight.getIntensity();
-			float err = a-b;
+			float errP = a-b;
 			
-			if(errBefore == 0) {
-				if(err < 0) {
-					
-				}
-			} else {
-				if(err > 0) {
-					
-				}
-			}
+			errI = errI + errP*ki;
 			
-			if(err > 0) {
+			LCD.drawString(String.valueOf(errI), 0, 0);
+			Delay.msDelay(5);
+			
+			float err = errP + errI;
+			
+			if(err < 0) {
 				mRight.setSpeed(Math.round(speed-(err*kp)));
 				mLeft.setSpeed(speed);
-				errBefore = 0;
 				//Evtl delay
 			} else {
 				mLeft.setSpeed(Math.round(speed+(err*kp)));
 				mRight.setSpeed(speed);
-				errBefore = 1;
 				//Evtl delay
 			}
 		}

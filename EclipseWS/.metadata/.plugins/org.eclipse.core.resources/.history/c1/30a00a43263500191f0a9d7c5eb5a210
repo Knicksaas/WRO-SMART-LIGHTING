@@ -1,0 +1,50 @@
+package ch.nte.wro.linefollower;
+
+import ch.nte.wro.sensors.LightIntensitySensorChecker;
+import ch.nte.wro.status.GlobalSensors;
+import ch.nte.wro.status.RoboData;
+import lejos.robotics.RegulatedMotor;
+
+public class Linefollower {
+	
+	private int speed;
+	private RegulatedMotor mLeft;
+	private RegulatedMotor mRight;
+	private boolean running = true;
+	private float kp;
+	
+	public Linefollower(int speed, RegulatedMotor mLeft, RegulatedMotor mRight, float kp) {
+		this.speed = speed;
+		this.mLeft = mLeft;
+		this.mRight = mRight;
+		this.kp = kp;
+		followLine();
+	}
+	
+	private void followLine() {
+		
+		LightIntensitySensorChecker lLeft = new LightIntensitySensorChecker(GlobalSensors.colorSensorLeft);
+		
+		mLeft.setSpeed(speed);
+		mRight.setSpeed(speed);
+		if(RoboData.invertMotorDirection) {
+			mLeft.backward();
+			mRight.backward();
+			mLeft.setSpeed(speed);
+			mRight.setSpeed(speed);
+		} else {
+			mLeft.forward();
+			mRight.forward();
+			mLeft.setSpeed(speed);
+			mRight.setSpeed(speed);
+		}
+		
+		while(running) {
+			lLeft.checkSensor();
+			
+			outP = (/*Soll*/ - lLeft)*kp;
+			
+			
+		}
+	}
+}

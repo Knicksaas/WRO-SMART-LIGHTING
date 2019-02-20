@@ -11,7 +11,7 @@ public class LinefollowerTester {
 		RegulatedMotor mLeft = new EV3LargeRegulatedMotor(RoboData.portMotorLeft);
 		RegulatedMotor mRight = new EV3LargeRegulatedMotor(RoboData.portMotorRight);
 
-		new Linefollower2(100, mLeft, mRight, 100);
+		new Linefollower2(100, mLeft, mRight, 60, 0.0F);
 	}
 
 }
