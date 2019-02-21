@@ -1,0 +1,15 @@
+package ch.nte.wro.test;
+
+import ch.nte.wro.motion.ZangeDown;
+import lejos.hardware.motor.EV3MediumRegulatedMotor;
+import lejos.hardware.port.MotorPort;
+import lejos.robotics.RegulatedMotor;
+import lejos.utility.Delay;
+
+public class Ev3MiddleRegulatedMotortester {
+
+	public static void main(String[] args) {
+		new ZangeDown();
+	}
+
+}

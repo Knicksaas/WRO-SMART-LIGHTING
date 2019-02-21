@@ -21,7 +21,7 @@ public class CountLines {
 			mRight.backward();
 		} else {
 			mLeft.forward();
-			mRight.backward();
+			mRight.forward();
 		}
 		
 		while(actualLinesPassed <= lines) {

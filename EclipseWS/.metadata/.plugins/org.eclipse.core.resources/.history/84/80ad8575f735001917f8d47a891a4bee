@@ -1,0 +1,14 @@
+package ch.nte.wro.test;
+
+import ch.nte.wro.status.GlobalSensors;
+import lejos.hardware.sensor.SensorModes;
+import lejos.robotics.SampleProvider;
+
+public class ColorSensorTester {
+
+	public static void main(String[] args) {
+		SensorModes sensor = GlobalSensors.colorSensorFront;
+		SampleProvider light = sensor.getMode("Red");
+		float[] status = new float[light.sampleSize()];
+	}
+}

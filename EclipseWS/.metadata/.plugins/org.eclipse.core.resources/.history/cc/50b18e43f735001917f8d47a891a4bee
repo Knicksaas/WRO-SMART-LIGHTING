@@ -1,0 +1,12 @@
+package ch.nte.wro.test;
+
+import ch.nte.wro.status.GlobalSensors;
+import lejos.hardware.sensor.SensorModes;
+
+public class ColorSensorTester {
+
+	public static void main(String[] args) {
+		SensorModes cFront = GlobalSensors.colorSensorFront;
+		
+	}
+}

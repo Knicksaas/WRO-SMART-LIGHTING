@@ -1,0 +1,16 @@
+package ch.nte.wro.motion;
+
+import ch.nte.wro.status.RoboData;
+import lejos.robotics.RegulatedMotor;
+
+public class motorsON {
+	
+	public motorsON(int speed, RegulatedMotor mLeft, RegulatedMotor mRight, boolean forward) {
+		mLeft.setSpeed(speed);
+		mRight.setSpeed(speed);
+		if(RoboData.invertMotorDirection && forward) {
+			
+		}
+	}
+
+}

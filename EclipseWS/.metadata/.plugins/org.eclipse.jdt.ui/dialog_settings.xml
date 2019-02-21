@@ -52,6 +52,11 @@
 	<section name="BuildPathsPropertyPage">
 		<item value="2" key="pageIndex"/>
 	</section>
+	<section name="JavaSearchPage">
+		<item value="0" key="HISTORY_SIZE"/>
+		<item value="false" key="CASE_SENSITIVE"/>
+		<item value="11" key="INCLUDE_MASK"/>
+	</section>
 	<section name="completion_proposal_size">
 		<item value="221" key="contextSelector.size.y"/>
 		<item value="331" key="contextSelector.size.x"/>

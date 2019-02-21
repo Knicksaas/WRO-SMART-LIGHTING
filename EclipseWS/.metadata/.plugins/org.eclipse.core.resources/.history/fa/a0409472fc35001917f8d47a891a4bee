@@ -1,0 +1,5 @@
+package ch.nte.wro.sensors;
+
+public class RGBColorChecker {
+
+}

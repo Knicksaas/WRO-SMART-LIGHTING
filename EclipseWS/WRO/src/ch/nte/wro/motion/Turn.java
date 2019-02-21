@@ -24,6 +24,8 @@ public class Turn {
 	}
 
 	private void exec() {
+		mRight.setSpeed(speed);
+		mLeft.setSpeed(speed);
 		GyroSensorChecker gs = new GyroSensorChecker();
 		gs.checkSensor();
 		anfangswertSensor = gs.getAngle();
@@ -35,29 +37,43 @@ public class Turn {
 		
 		if(angle<anfangswertSensor) {
 			if(RoboData.invertMotorDirection) {
+				mRight.setSpeed(speed);
+				mLeft.setSpeed(speed);
 				mRight.forward();
 				mLeft.backward();
 				mRight.setSpeed(speed);
 				mLeft.setSpeed(speed);
 			} else {
+				mRight.setSpeed(speed);
+				mLeft.setSpeed(speed);
 				mRight.backward();
 				mLeft.forward();
 				mRight.setSpeed(speed);
 				mLeft.setSpeed(speed);
 			}
+			mRight.setSpeed(speed);
+			mLeft.setSpeed(speed);
 		} else {
 			if(RoboData.invertMotorDirection) {
+				mRight.setSpeed(speed);
+				mLeft.setSpeed(speed);
 				mRight.backward();
 				mLeft.forward();
 				mRight.setSpeed(speed);
 				mLeft.setSpeed(speed);
 			} else {
+				mRight.setSpeed(speed);
+				mLeft.setSpeed(speed);
 				mRight.forward();
 				mLeft.backward();
 				mRight.setSpeed(speed);
 				mLeft.setSpeed(speed);
 			}
+			mRight.setSpeed(speed);
+			mLeft.setSpeed(speed);
 		}
+		mRight.setSpeed(speed);
+		mLeft.setSpeed(speed);
 		gs.checkSensor();
 		LCD.clear();
 		LCD.drawString(String.valueOf(gs.getAngle()), 0, 0);
