@@ -1,0 +1,5 @@
+package ch.nte.wro.motion;
+
+public class PickUpLight {
+
+}

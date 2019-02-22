@@ -1,0 +1,7 @@
+package ch.nte.wro.status;
+
+public class LightArrangement {
+	
+	public static String area1Green;
+
+}

@@ -1,5 +1,6 @@
 package ch.nte.wro.linefollower;
 
+import ch.nte.wro.motion.motorsOFF;
 import ch.nte.wro.sensors.LightIntensitySensorChecker;
 import ch.nte.wro.sensors.RGBColorSensorChecker;
 import ch.nte.wro.status.GlobalSensors;
@@ -14,7 +15,8 @@ public class LinefollowerUntilLight {
 	private RegulatedMotor mLeft;
 	private RegulatedMotor mRight;
 	private boolean running = false;
-	private int kp;
+	private boolean isThereABlock = false;
+	private int kp; 
 	private float ki = 0.0F;
 	private float errI = 0;
 
@@ -77,9 +79,18 @@ public class LinefollowerUntilLight {
 				mLeft.stop();
 				mRight.stop();
 				running = false;
+				isThereABlock = true;
 			}
 			
-			//if( summe der lineIntensitäten > 80 oder so...) --> stop
+			if((lLeft.getIntensity() + lRight.getIntensity()) > 1) {
+				new motorsOFF(mLeft, mRight);
+				running = false;
+				isThereABlock = false;
+			}
 		}
+	}
+	
+	public boolean isThereALight() {
+		return isThereABlock;
 	}
 }

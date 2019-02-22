@@ -10,11 +10,15 @@ public class motorsON {
 		mRight.setSpeed(speed);
 		if(RoboData.invertMotorDirection) {
 			if(forward) {
+				mLeft.setSpeed(speed);
+				mRight.setSpeed(speed);
 				mLeft.backward();
 				mRight.backward();
 				mLeft.setSpeed(speed);
 				mRight.setSpeed(speed);
 			} else {
+				mLeft.setSpeed(speed);
+				mRight.setSpeed(speed);
 				mLeft.forward();
 				mRight.forward();
 				mLeft.setSpeed(speed);
@@ -22,11 +26,15 @@ public class motorsON {
 			}
 		} else {
 			if(forward) {
+				mLeft.setSpeed(speed);
+				mRight.setSpeed(speed);
 				mLeft.forward();
 				mRight.forward();
 				mLeft.setSpeed(speed);
 				mRight.setSpeed(speed);
 			} else {
+				mLeft.setSpeed(speed);
+				mRight.setSpeed(speed);
 				mLeft.backward();
 				mRight.backward();
 				mLeft.setSpeed(speed);
