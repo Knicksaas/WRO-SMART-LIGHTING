@@ -2,15 +2,19 @@ package ch.nte.wro.main;
 
 import ch.nte.wro.linefollower.LinefollowerUntilJunction;
 import ch.nte.wro.linefollower.LinefollowerUntilLight;
+import ch.nte.wro.linefollower.LinefollowerUntilWhiteGround;
 import ch.nte.wro.motion.CountLines;
 import ch.nte.wro.motion.PickUpLight;
 import ch.nte.wro.motion.Turn;
 import ch.nte.wro.motion.ZangeDown;
+import ch.nte.wro.motion.ZangeUp;
 import ch.nte.wro.motion.motorsOFF;
 import ch.nte.wro.motion.motorsON;
 import ch.nte.wro.motion.motorsOnUntilJunction;
 import ch.nte.wro.status.GlobalSensors;
 import ch.nte.wro.status.LightArrangement;
+import ch.nte.wro.status.RoboData;
+import lejos.hardware.motor.EV3LargeRegulatedMotor;
 import lejos.robotics.RegulatedMotor;
 import lejos.utility.Delay;
 
@@ -39,10 +43,20 @@ public class TrashAufräumen {
 			driveFromA1YtoK2();
 		}	
 		
+		mLeft.close();
+		mRight.close();
+		
+		mLeft = new EV3LargeRegulatedMotor(RoboData.portMotorLeft);
+		mRight = new EV3LargeRegulatedMotor(RoboData.portMotorRight);
+		
 		area1Blue = driveToArea1Blue();
 		if(area1Blue) {
 			//Auf A1B ist ein Licht
 			LightArrangement.area1Blue = "black";
+			mLeft.close();
+			mRight.close();
+			mLeft = new EV3LargeRegulatedMotor(RoboData.portMotorLeft);
+			mRight = new EV3LargeRegulatedMotor(RoboData.portMotorRight);
 			driveFromA1BToK4();
 			mLeft.setSpeed(speed);
 			mRight.setSpeed(speed);
@@ -56,7 +70,10 @@ public class TrashAufräumen {
 			//Auf A1R ist ein Licht
 			LightArrangement.area1Red = "balck";
 			driveFromA1BToK4();
+			driveToArea1Red();
 		}
+		
+		driveFromTrashToK3();
 	}
 	
 	private boolean driveToArea1Green() {
@@ -107,15 +124,49 @@ public class TrashAufräumen {
 			new PickUpLight(speed, mLeft, mRight);
 			return true;
 		}
+		new ZangeUp();
 		return false;
 	}
 	
 	private void driveFromA1BToK4() {
-		new motorsOnUntilJunction(speed, mLeft, mRight, false);
+		new motorsOnUntilJunction(speed*2, mLeft, mRight, false);
 		new motorsON(speed, mLeft, mRight, true);
 		Delay.msDelay(700);
 		new motorsOFF(mLeft, mRight);
 		new Turn(speed, 90, mLeft, mRight);
 		new LinefollowerUntilLight(speed*3, mLeft, mRight, 60);
+	}
+	
+	private boolean driveToArea1Red() {
+		new motorsON(speed, mLeft, mRight, true);
+		Delay.msDelay(500);
+		new motorsOFF(mLeft, mRight);
+		new Turn(speed, -90, mLeft, mRight);
+		new ZangeDown();
+		new LinefollowerUntilLight(speed, mLeft, mRight, 60);
+		new PickUpLight(speed, mLeft, mRight);
+		new Turn(speed, 180, mLeft, mRight);
+		new LinefollowerUntilJunction(speed*2, mLeft, mRight, 60);
+		mLeft.setSpeed(speed);
+		mRight.setSpeed(speed);
+		new motorsON(speed, mLeft, mRight, false);
+		Delay.msDelay(1000);
+		new motorsOFF(mLeft, mRight);
+		new ZangeDown();
+		return false;
+	}
+	
+	private void driveFromTrashToK3() {
+		new motorsON(speed, mLeft, mRight, false);
+		Delay.msDelay(2000);
+		mLeft.setSpeed(0);
+		mRight.setSpeed(0);
+		mLeft.stop();
+		mRight.stop();
+		mLeft.setSpeed(speed);
+		mRight.setSpeed(speed);
+		new Turn(speed, 70, mLeft, mRight);
+		new LinefollowerUntilJunction(speed*2, mLeft, mRight, 120);
+		new LinefollowerUntilWhiteGround(speed*2, mLeft, mRight, 60);
 	}
 }
