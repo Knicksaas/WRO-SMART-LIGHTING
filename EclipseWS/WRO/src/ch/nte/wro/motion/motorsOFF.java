@@ -1,6 +1,7 @@
 package ch.nte.wro.motion;
 
 import lejos.robotics.RegulatedMotor;
+import lejos.utility.Delay;
 
 public class motorsOFF {
 
@@ -9,5 +10,6 @@ public class motorsOFF {
 		mRight.setSpeed(0);
 		mLeft.stop();
 		mRight.stop();
+		Delay.msDelay(100);
 	}
 }

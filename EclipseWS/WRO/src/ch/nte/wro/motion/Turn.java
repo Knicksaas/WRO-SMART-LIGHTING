@@ -14,10 +14,8 @@ public class Turn {
 	private float anfangswertSensor = 0;
 	
 	public Turn(int speed, float angle, RegulatedMotor mLeft, RegulatedMotor mRight) {
-		mLeft.setSpeed(speed);
-		mRight.setSpeed(speed);
 		this.angle = angle;
-		this.speed = speed;
+		this.speed = (int) Math.round(speed*1.2);
 		this.mLeft = mLeft;
 		this.mRight = mRight;
 		exec();
@@ -37,40 +35,22 @@ public class Turn {
 		
 		if(angle<anfangswertSensor) {
 			if(RoboData.invertMotorDirection) {
-				mRight.setSpeed(speed);
-				mLeft.setSpeed(speed);
 				mRight.forward();
 				mLeft.backward();
-				mRight.setSpeed(speed);
-				mLeft.setSpeed(speed);
 			} else {
-				mRight.setSpeed(speed);
-				mLeft.setSpeed(speed);
 				mRight.backward();
 				mLeft.forward();
-				mRight.setSpeed(speed);
-				mLeft.setSpeed(speed);
 			}
 			mRight.setSpeed(speed);
 			mLeft.setSpeed(speed);
 		} else {
 			if(RoboData.invertMotorDirection) {
-				mRight.setSpeed(speed);
-				mLeft.setSpeed(speed);
 				mRight.backward();
 				mLeft.forward();
-				mRight.setSpeed(speed);
-				mLeft.setSpeed(speed);
 			} else {
-				mRight.setSpeed(speed);
-				mLeft.setSpeed(speed);
 				mRight.forward();
 				mLeft.backward();
-				mRight.setSpeed(speed);
-				mLeft.setSpeed(speed);
 			}
-			mRight.setSpeed(speed);
-			mLeft.setSpeed(speed);
 		}
 		mRight.setSpeed(speed);
 		mLeft.setSpeed(speed);
@@ -92,9 +72,6 @@ public class Turn {
 			}
 		}
 		
-		mRight.setSpeed(0);
-		mLeft.setSpeed(0);
-		mRight.stop();
-		mLeft.stop();
+		new motorsOFF(mLeft, mRight);
 	}
 }

@@ -1,5 +1,6 @@
 package ch.nte.wro.linefollower;
 
+import ch.nte.wro.motion.motorsOFF;
 import ch.nte.wro.sensors.LightIntensitySensorChecker;
 import ch.nte.wro.status.GlobalSensors;
 import ch.nte.wro.status.RoboData;
@@ -56,10 +57,7 @@ public class TurnUntilLine {
 			l1.checkSensor();
 		}
 		
-		mRight.setSpeed(0);
-		mLeft.setSpeed(0);
-		mRight.stop();
-		mLeft.stop();
+		new motorsOFF(mLeft, mRight);
 		mRight.close();
 		mLeft.close();
 	}

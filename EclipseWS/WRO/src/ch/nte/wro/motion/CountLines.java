@@ -36,7 +36,7 @@ public class CountLines {
 					mRight.stop();
 					return;
 				} else {
-					Delay.msDelay(speed*10);
+					Delay.msDelay(speed*5);
 				}
 			}
 		}

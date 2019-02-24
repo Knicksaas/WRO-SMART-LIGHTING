@@ -26,10 +26,7 @@ public class StopAtNextLine {
 			lic.checkSensor();
 			if(lic.getIntensity() < 0.10) {
 				foundALine = true;
-				mLeft.setSpeed(0);
-				mRight.setSpeed(0);
-				mLeft.stop();
-				mRight.stop();
+				new motorsOFF(mLeft, mRight);
 			}
 		}
 	}

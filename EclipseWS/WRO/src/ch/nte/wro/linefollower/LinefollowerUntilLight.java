@@ -74,10 +74,7 @@ public class LinefollowerUntilLight {
 			}
 			
 			if(cFront.isThereABlock()) {
-				mLeft.setSpeed(0);
-				mRight.setSpeed(0);
-				mLeft.stop();
-				mRight.stop();
+				new motorsOFF(mLeft, mRight);
 				running = false;
 				isThereABlock = true;
 			}

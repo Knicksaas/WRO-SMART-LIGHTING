@@ -6,6 +6,7 @@ import ch.nte.wro.linefollower.LinefollowerUntilWhiteGround;
 import ch.nte.wro.motion.CountLines;
 import ch.nte.wro.motion.PickUpLight;
 import ch.nte.wro.motion.Turn;
+import ch.nte.wro.motion.TurnWithOneMotor;
 import ch.nte.wro.motion.ZangeDown;
 import ch.nte.wro.motion.ZangeUp;
 import ch.nte.wro.motion.motorsOFF;
@@ -23,13 +24,14 @@ public class TrashAufräumen {
 	private RegulatedMotor mLeft;
 	private RegulatedMotor mRight;
 	private int speed;
-	private boolean area1Green;
+	private boolean area1Green = true;
 	private boolean area1Blue;
 	
 	public TrashAufräumen(RegulatedMotor mLeft, RegulatedMotor mRight, int speed) {
 		this.mLeft = mLeft;
 		this.mRight = mRight;
 		this.speed = speed;
+		
 		area1Green = driveToArea1Green();
 		if(area1Green) {
 			//Auf A1G ist ein Licht
@@ -62,7 +64,7 @@ public class TrashAufräumen {
 			mRight.setSpeed(speed);
 			new Turn(speed, 90, mLeft, mRight);
 			new motorsON(speed, mLeft, mRight, false);
-			Delay.msDelay(700);
+			Delay.msDelay((50*700)/speed);
 			new motorsOFF(mLeft, mRight);
 			new ZangeDown();
 			
@@ -80,7 +82,7 @@ public class TrashAufräumen {
 		new Turn(speed, -20, mLeft, mRight);
 		new CountLines(speed*2, mLeft, mRight, GlobalSensors.colorSensorLeft, 5);
 		new motorsON(speed, mLeft, mRight, true);
-		Delay.msDelay(700);
+		Delay.msDelay((50*700)/speed);
 		new motorsOFF(mLeft, mRight);
 		new Turn(speed, 110, mLeft, mRight);
 		LinefollowerUntilLight lfunl = new LinefollowerUntilLight(speed, mLeft, mRight, 80);
@@ -93,10 +95,10 @@ public class TrashAufräumen {
 	
 	private boolean driveToArea1Yellow() {
 		new motorsON(speed, mLeft, mRight, true);
-		Delay.msDelay(1500);
+		Delay.msDelay((50*1500)/speed);
 		new motorsOFF(mLeft, mRight);
 		new Turn(speed, -90, mLeft, mRight);
-		new LinefollowerUntilLight(speed*4, mLeft, mRight, 60);
+		new LinefollowerUntilLight(speed*3, mLeft, mRight, 60);
 		new PickUpLight(speed, mLeft, mRight);
 		return true;
 	}
@@ -111,7 +113,7 @@ public class TrashAufräumen {
 		new Turn(speed, 180, mLeft, mRight);
 		new LinefollowerUntilLight(speed*3, mLeft, mRight, 60);
 		new motorsON(speed, mLeft, mRight, true);
-		Delay.msDelay(1000);
+		Delay.msDelay((50*1000)/speed);
 		new motorsOFF(mLeft, mRight);
 		new Turn(speed, 90, mLeft, mRight);
 		new LinefollowerUntilJunction(speed*3, mLeft, mRight, 60);
@@ -119,7 +121,7 @@ public class TrashAufräumen {
 	}
 	
 	private boolean driveToArea1Blue() {
-		LinefollowerUntilLight lfunl = new LinefollowerUntilLight(speed, mLeft, mRight, 80);
+		LinefollowerUntilLight lfunl = new LinefollowerUntilLight((int) Math.round(speed*1.5), mLeft, mRight, 80);
 		if(lfunl.isThereALight()) {
 			new PickUpLight(speed, mLeft, mRight);
 			return true;
@@ -131,7 +133,7 @@ public class TrashAufräumen {
 	private void driveFromA1BToK4() {
 		new motorsOnUntilJunction(speed*2, mLeft, mRight, false);
 		new motorsON(speed, mLeft, mRight, true);
-		Delay.msDelay(700);
+		Delay.msDelay((50*700)/speed);
 		new motorsOFF(mLeft, mRight);
 		new Turn(speed, 90, mLeft, mRight);
 		new LinefollowerUntilLight(speed*3, mLeft, mRight, 60);
@@ -139,7 +141,7 @@ public class TrashAufräumen {
 	
 	private boolean driveToArea1Red() {
 		new motorsON(speed, mLeft, mRight, true);
-		Delay.msDelay(500);
+		Delay.msDelay((50*500)/speed);
 		new motorsOFF(mLeft, mRight);
 		new Turn(speed, -90, mLeft, mRight);
 		new ZangeDown();
@@ -147,10 +149,8 @@ public class TrashAufräumen {
 		new PickUpLight(speed, mLeft, mRight);
 		new Turn(speed, 180, mLeft, mRight);
 		new LinefollowerUntilJunction(speed*2, mLeft, mRight, 60);
-		mLeft.setSpeed(speed);
-		mRight.setSpeed(speed);
 		new motorsON(speed, mLeft, mRight, false);
-		Delay.msDelay(1000);
+		Delay.msDelay((50*1000)/speed);
 		new motorsOFF(mLeft, mRight);
 		new ZangeDown();
 		return false;
@@ -158,15 +158,10 @@ public class TrashAufräumen {
 	
 	private void driveFromTrashToK3() {
 		new motorsON(speed, mLeft, mRight, false);
-		Delay.msDelay(2000);
-		mLeft.setSpeed(0);
-		mRight.setSpeed(0);
-		mLeft.stop();
-		mRight.stop();
-		mLeft.setSpeed(speed);
-		mRight.setSpeed(speed);
-		new Turn(speed, 70, mLeft, mRight);
-		new LinefollowerUntilJunction(speed*2, mLeft, mRight, 120);
+		Delay.msDelay((50*2200)/speed);
+		new motorsOFF(mLeft, mRight);
+		new TurnWithOneMotor(speed*2, 90, mLeft, mRight);
+		new LinefollowerUntilJunction(speed*2, mLeft, mRight, 80);
 		new LinefollowerUntilWhiteGround(speed*2, mLeft, mRight, 60);
 	}
 }

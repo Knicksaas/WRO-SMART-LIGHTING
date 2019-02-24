@@ -6,7 +6,7 @@ import lejos.robotics.RegulatedMotor;
 
 public class Main {
 	
-	private static int speed = 50;
+	private static int speed = 75;
 
 	public static void main(String[] args) {
 		RegulatedMotor mLeft = new EV3LargeRegulatedMotor(RoboData.portMotorLeft);

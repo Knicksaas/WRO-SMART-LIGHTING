@@ -70,9 +70,6 @@ public class TurnWithoutStop {
 			}
 		}
 		
-		mRight.setSpeed(0);
-		mLeft.setSpeed(0);
-		mRight.stop();
-		mLeft.stop();
+		new motorsOFF(mLeft, mRight);
 	}
 }
