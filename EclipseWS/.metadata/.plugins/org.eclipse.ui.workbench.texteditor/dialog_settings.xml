@@ -6,12 +6,16 @@
 	</section>
 	<section name="org.eclipse.ui.texteditor.FindReplaceDialog">
 		<item value="false" key="isRegEx"/>
-		<item value="mZange" key="selection"/>
+		<item value="msDelay" key="selection"/>
 		<item value="false" key="casesensitive"/>
 		<item value="false" key="incremental"/>
 		<item value="true" key="wrap"/>
 		<item value="false" key="wholeword"/>
 		<list key="findhistory">
+			<item value="msdelay"/>
+			<item value="delay"/>
+			<item value="delas"/>
+			<item value="0"/>
 			<item value="m3"/>
 			<item value="angel"/>
 			<item value="lic"/>

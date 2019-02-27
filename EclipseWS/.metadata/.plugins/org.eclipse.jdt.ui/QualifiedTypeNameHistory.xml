@@ -1,7 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <qualifiedTypeNameHistroy>
-<fullyQualifiedTypeName name="java.lang.System"/>
-<fullyQualifiedTypeName name="lejos.robotics.SampleProvider"/>
 <fullyQualifiedTypeName name="ch.nte.wro.motion.Linefolower"/>
 <fullyQualifiedTypeName name="ch.nte.wro.test.Turn"/>
 <fullyQualifiedTypeName name="lejos.hardware.sensor.EV3GyroSensor"/>
@@ -24,7 +22,6 @@
 <fullyQualifiedTypeName name="java.lang.Deprecated"/>
 <fullyQualifiedTypeName name="ch.nte.wro.test.AdjustTester"/>
 <fullyQualifiedTypeName name="ch.nte.wro.motion.AdjustWithLine"/>
-<fullyQualifiedTypeName name="java.lang.Math"/>
 <fullyQualifiedTypeName name="ch.nte.wro.linefollower.Linefollower"/>
 <fullyQualifiedTypeName name="org.jfree.chart.plot.SpiderWebPlot"/>
 <fullyQualifiedTypeName name="lejos.hardware.ev3.LocalEV3"/>
@@ -47,17 +44,20 @@
 <fullyQualifiedTypeName name="ch.nte.wro.main.TrashAufräumen"/>
 <fullyQualifiedTypeName name="ch.nte.wro.motion.PickUpLight"/>
 <fullyQualifiedTypeName name="ch.nte.wro.motion.ZangeUp"/>
-<fullyQualifiedTypeName name="ch.nte.wro.motion.ZangeDown"/>
-<fullyQualifiedTypeName name="ch.nte.wro.motion.motorsON"/>
-<fullyQualifiedTypeName name="lejos.utility.Delay"/>
 <fullyQualifiedTypeName name="ch.nte.wro.motion.StopAtNextLine"/>
 <fullyQualifiedTypeName name="ch.nte.wro.status.GlobalSensors"/>
-<fullyQualifiedTypeName name="ch.nte.wro.motion.Turn"/>
 <fullyQualifiedTypeName name="ch.nte.wro.linefollower.LinefollowerUntilLight"/>
-<fullyQualifiedTypeName name="ch.nte.wro.motion.motorsOFF"/>
 <fullyQualifiedTypeName name="ch.nte.wro.linefollower.LinefollowerUntilJunction"/>
 <fullyQualifiedTypeName name="ch.nte.wro.linefollower.LinefollowerUntilWhiteGround"/>
 <fullyQualifiedTypeName name="lejos.robotics.RegulatedMotor"/>
 <fullyQualifiedTypeName name="lejos.hardware.motor.EV3LargeRegulatedMotor"/>
 <fullyQualifiedTypeName name="ch.nte.wro.status.RoboData"/>
+<fullyQualifiedTypeName name="ch.nte.wro.motion.TurnWithOneMotor"/>
+<fullyQualifiedTypeName name="java.lang.Math"/>
+<fullyQualifiedTypeName name="ch.nte.wro.motion.Turn"/>
+<fullyQualifiedTypeName name="ch.nte.wro.motion.motorsON"/>
+<fullyQualifiedTypeName name="lejos.utility.Delay"/>
+<fullyQualifiedTypeName name="ch.nte.wro.motion.motorsOFF"/>
+<fullyQualifiedTypeName name="ch.nte.wro.linefollower.LinefollowerWithTime"/>
+<fullyQualifiedTypeName name="ch.nte.wro.motion.ZangeDown"/>
 </qualifiedTypeNameHistroy>
