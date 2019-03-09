@@ -1,6 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <qualifiedTypeNameHistroy>
-<fullyQualifiedTypeName name="ch.nte.wro.motion.Linefolower"/>
 <fullyQualifiedTypeName name="ch.nte.wro.test.Turn"/>
 <fullyQualifiedTypeName name="lejos.hardware.sensor.EV3GyroSensor"/>
 <fullyQualifiedTypeName name="lejos.hardware.sensor.EV3TouchSensor"/>
@@ -60,4 +59,5 @@
 <fullyQualifiedTypeName name="ch.nte.wro.motion.motorsOFF"/>
 <fullyQualifiedTypeName name="ch.nte.wro.linefollower.LinefollowerWithTime"/>
 <fullyQualifiedTypeName name="ch.nte.wro.motion.ZangeDown"/>
+<fullyQualifiedTypeName name="ch.nte.wro.main.TrashAufräumenAndGreen"/>
 </qualifiedTypeNameHistroy>
