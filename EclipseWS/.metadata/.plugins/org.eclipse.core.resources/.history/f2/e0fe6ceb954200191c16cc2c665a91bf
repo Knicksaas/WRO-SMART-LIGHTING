@@ -36,7 +36,7 @@ public class motorsOnUntilJunction {
 		while(running) {
 			lLeft.checkSensor();
 			lRight.checkSensor();
-			if((lLeft.getIntensity() + lRight.getIntensity())< 0.09) {
+			if((lLeft.getIntensity() + lRight.getIntensity())< 0.1) {
 				new motorsOFF(mLeft, mRight);
 				running = false;
 			}

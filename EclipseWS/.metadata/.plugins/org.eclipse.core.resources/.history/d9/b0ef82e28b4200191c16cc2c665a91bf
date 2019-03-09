@@ -23,6 +23,7 @@ public class TrashAufräumenAndGreen {
 	private RegulatedMotor mLeft;
 	private RegulatedMotor mRight;
 	private int speed;
+	private boolean area1Green;
 	private boolean area1Blue;
 	private boolean light1Green;
 	private boolean light2Green;
@@ -45,30 +46,21 @@ public class TrashAufräumenAndGreen {
 		unloadInArea2Green();
 		
 		if(light1Green && light2Green) {
-			unloadLightInA1GAndDriveToA1Y();
-			driveFromA1YtoK2();
-		} else if(light1Green || light2Green) {
-			driveToA1G();
-		}
-		area1Blue = driveToArea1Blue();
-		if(area1Blue) {
-			//Auf A1B ist ein Licht
-			LightArrangement.area1Blue = "black";
-			driveFromA1BToK4();
-			new Turn(speed, 90, mLeft, mRight);
+			new LinefollowerUntilWhiteGround(speed, mLeft, mRight, 80);
 			new motorsON(speed, mLeft, mRight, false);
-			Delay.msDelay((50*700)/speed);
+			Delay.msDelay((50*1000)/speed);
 			new motorsOFF(mLeft, mRight);
 			new ZangeDown();
-			
-		} else {
-			//Auf A1R ist ein Licht
-			LightArrangement.area1Red = "balck";
-			driveFromA1BToK4();
-			driveToArea1Red();
+			new motorsON(speed, mLeft, mRight, false);
+			Delay.msDelay((50*2000)/speed);
+			new motorsOFF(mLeft, mRight);
+			new Turn(speed, -45, mLeft, mRight);
+			new LinefollowerUntilHalfJunction(speed, mLeft, mRight, 60);
+			new motorsON(speed, mLeft, mRight, true);
+			Delay.msDelay((50*500)/speed);
+			new motorsOFF(mLeft, mRight);
+			new Turn(speed, -45, mLeft, mRight);
 		}
-		
-		driveFromTrashToK3();
 	}
 	
 	private boolean driveToLight1Green() {
@@ -102,6 +94,10 @@ public class TrashAufräumenAndGreen {
 	}
 	
 	private void unloadInArea2Green() {
+
+	}
+	
+	private void unload2LightAndDriveToA1Y() {
 		new LinefollowerUntilWhiteGround(speed*2, mLeft, mRight, 60);
 		new Turn(speed, -10, mLeft, mRight);
 		new LinefollowerUntilJunction(speed*2, mLeft, mRight, 20);
@@ -114,45 +110,23 @@ public class TrashAufräumenAndGreen {
 		new LinefollowerWithTime(speed, mLeft, mRight, 60, 500);
 		new UnloadLight2(speed, mLeft, mRight);
 		new motorsOnUntilJunction(speed*2, mLeft, mRight, false);
-	}
-	
-	private void unloadLightInA1GAndDriveToA1Y() {
-		new LinefollowerUntilWhiteGround(speed, mLeft, mRight, 80);
-		new motorsON(speed, mLeft, mRight, false);
-		Delay.msDelay((50*1000)/speed);
-		new motorsOFF(mLeft, mRight);
-		new ZangeDown();
-		new motorsON(speed, mLeft, mRight, false);
-		Delay.msDelay((50*2000)/speed);
-		new motorsOFF(mLeft, mRight);
-		new Turn(speed, -45, mLeft, mRight);
-		new LinefollowerUntilHalfJunction(speed, mLeft, mRight, 60);
-		new motorsON(speed, mLeft, mRight, true);
-		Delay.msDelay((50*500)/speed);
-		new motorsOFF(mLeft, mRight);
-		new Turn(speed, -45, mLeft, mRight);
 		new LinefollowerUntilLight(speed*3, mLeft, mRight, 60);
 		new PickUpLight(speed, mLeft, mRight);
 	}
 	
-	private void driveToA1G() {
-		new Turn(speed, 90, mLeft, mRight);
-		new LinefollowerUntilLight(speed, mLeft, mRight, 60);
-		new PickUpLight(speed, mLeft, mRight);
+	private void drivefromA1GtoK2() {
 		new Turn(speed, 180, mLeft, mRight);
-		new LinefollowerUntilJunction(speed, mLeft, mRight, 60);
+		new LinefollowerUntilJunction(speed*2, mLeft, mRight, 60);
+		new ZangeDown();
 	}
 	
 	private void driveFromA1YtoK2() {
 		new Turn(speed, 180, mLeft, mRight);
-		new LinefollowerUntilHalfJunction(speed, mLeft, mRight, 60);
-		new LinefollowerUntilHalfJunction(speed, mLeft, mRight, 60);
-		new Turn(speed, 30, mLeft, mRight);
-		new LinefollowerUntilHalfJunction(speed, mLeft, mRight, 60);
+		new LinefollowerUntilLight(speed*3, mLeft, mRight, 60);
 		new motorsON(speed, mLeft, mRight, true);
-		Delay.msDelay((50*700)/speed);
+		Delay.msDelay((50*1000)/speed);
 		new motorsOFF(mLeft, mRight);
-		new Turn(speed, 60, mLeft, mRight);
+		new Turn(speed, 90, mLeft, mRight);
 		new LinefollowerUntilJunction(speed*3, mLeft, mRight, 60);
 		new ZangeDown();
 	}

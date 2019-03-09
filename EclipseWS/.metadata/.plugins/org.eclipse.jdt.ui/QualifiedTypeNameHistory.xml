@@ -1,7 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <qualifiedTypeNameHistroy>
-<fullyQualifiedTypeName name="ch.nte.wro.test.Turn"/>
-<fullyQualifiedTypeName name="lejos.hardware.sensor.EV3GyroSensor"/>
 <fullyQualifiedTypeName name="lejos.hardware.sensor.EV3TouchSensor"/>
 <fullyQualifiedTypeName name="ch.nte.wro.motion.LineFinder"/>
 <fullyQualifiedTypeName name="ch.nte.wro.motion.TurnUntilLine"/>
@@ -37,27 +35,29 @@
 <fullyQualifiedTypeName name="java.lang.String"/>
 <fullyQualifiedTypeName name="java.lang.Package"/>
 <fullyQualifiedTypeName name="ch.nte.wro.status.RoboStatus"/>
-<fullyQualifiedTypeName name="ch.nte.wro.status.LightArrangement"/>
 <fullyQualifiedTypeName name="ch.nte.wro.sensors.LightIntensitySensorChecker"/>
-<fullyQualifiedTypeName name="ch.nte.wro.motion.motorsOnUntilJunction"/>
 <fullyQualifiedTypeName name="ch.nte.wro.main.TrashAufräumen"/>
-<fullyQualifiedTypeName name="ch.nte.wro.motion.PickUpLight"/>
-<fullyQualifiedTypeName name="ch.nte.wro.motion.ZangeUp"/>
 <fullyQualifiedTypeName name="ch.nte.wro.motion.StopAtNextLine"/>
 <fullyQualifiedTypeName name="ch.nte.wro.status.GlobalSensors"/>
-<fullyQualifiedTypeName name="ch.nte.wro.linefollower.LinefollowerUntilLight"/>
-<fullyQualifiedTypeName name="ch.nte.wro.linefollower.LinefollowerUntilJunction"/>
-<fullyQualifiedTypeName name="ch.nte.wro.linefollower.LinefollowerUntilWhiteGround"/>
-<fullyQualifiedTypeName name="lejos.robotics.RegulatedMotor"/>
 <fullyQualifiedTypeName name="lejos.hardware.motor.EV3LargeRegulatedMotor"/>
 <fullyQualifiedTypeName name="ch.nte.wro.status.RoboData"/>
 <fullyQualifiedTypeName name="ch.nte.wro.motion.TurnWithOneMotor"/>
 <fullyQualifiedTypeName name="java.lang.Math"/>
-<fullyQualifiedTypeName name="ch.nte.wro.motion.Turn"/>
+<fullyQualifiedTypeName name="ch.nte.wro.linefollower.LinefollowerWithTime"/>
+<fullyQualifiedTypeName name="ch.nte.wro.main.TrashAufräumenAndGreen"/>
+<fullyQualifiedTypeName name="lejos.robotics.RegulatedMotor"/>
+<fullyQualifiedTypeName name="ch.nte.wro.motion.ZangeUp"/>
+<fullyQualifiedTypeName name="ch.nte.wro.motion.UnloadLight2"/>
+<fullyQualifiedTypeName name="ch.nte.wro.motion.motorsOnUntilJunction"/>
+<fullyQualifiedTypeName name="ch.nte.wro.linefollower.LinefollowerUntilWhiteGround"/>
+<fullyQualifiedTypeName name="ch.nte.wro.motion.ZangeDown"/>
 <fullyQualifiedTypeName name="ch.nte.wro.motion.motorsON"/>
 <fullyQualifiedTypeName name="lejos.utility.Delay"/>
 <fullyQualifiedTypeName name="ch.nte.wro.motion.motorsOFF"/>
-<fullyQualifiedTypeName name="ch.nte.wro.linefollower.LinefollowerWithTime"/>
-<fullyQualifiedTypeName name="ch.nte.wro.motion.ZangeDown"/>
-<fullyQualifiedTypeName name="ch.nte.wro.main.TrashAufräumenAndGreen"/>
+<fullyQualifiedTypeName name="ch.nte.wro.status.LightArrangement"/>
+<fullyQualifiedTypeName name="ch.nte.wro.linefollower.LinefollowerUntilLight"/>
+<fullyQualifiedTypeName name="ch.nte.wro.motion.PickUpLight"/>
+<fullyQualifiedTypeName name="ch.nte.wro.linefollower.LinefollowerUntilJunction"/>
+<fullyQualifiedTypeName name="ch.nte.wro.motion.Turn"/>
+<fullyQualifiedTypeName name="ch.nte.wro.linefollower.LinefollowerUntilHalfJunction"/>
 </qualifiedTypeNameHistroy>

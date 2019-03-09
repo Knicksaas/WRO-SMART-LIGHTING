@@ -147,12 +147,10 @@ public class TrashAufräumenAndGreen {
 		new Turn(speed, 180, mLeft, mRight);
 		new LinefollowerUntilHalfJunction(speed, mLeft, mRight, 60);
 		new LinefollowerUntilHalfJunction(speed, mLeft, mRight, 60);
-		new Turn(speed, 30, mLeft, mRight);
-		new LinefollowerUntilHalfJunction(speed, mLeft, mRight, 60);
 		new motorsON(speed, mLeft, mRight, true);
-		Delay.msDelay((50*700)/speed);
+		Delay.msDelay((50*1000)/speed);
 		new motorsOFF(mLeft, mRight);
-		new Turn(speed, 60, mLeft, mRight);
+		new Turn(speed, 90, mLeft, mRight);
 		new LinefollowerUntilJunction(speed*3, mLeft, mRight, 60);
 		new ZangeDown();
 	}
