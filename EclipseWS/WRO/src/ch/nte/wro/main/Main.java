@@ -11,6 +11,6 @@ public class Main {
 	public static void main(String[] args) {
 		RegulatedMotor mLeft = new EV3LargeRegulatedMotor(RoboData.portMotorLeft);
 		RegulatedMotor mRight = new EV3LargeRegulatedMotor(RoboData.portMotorRight);
-		new TrashAufräumenAndGreen(mLeft, mRight, speed);
+		new RedAndGreenAufräumen(speed, mLeft, mRight);
 	}
 }

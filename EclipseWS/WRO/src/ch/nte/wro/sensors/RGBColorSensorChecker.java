@@ -71,5 +71,20 @@ public class RGBColorSensorChecker {
 		}
 		return false;
 	}
+	
+	public String getRedOrBlue() {
+		float red = status[0];
+		float green = status[1];
+		float blue = status[2];
+		String returnWert = "none";
+		
+		if((red > blue) && (red > green)) {
+			returnWert = "red";
+		} else if((blue > red) && (blue > green)) {
+			returnWert = "blue";
+		}
+		
+		return returnWert;
+	}
 
 }

@@ -28,7 +28,6 @@
 <fullyQualifiedTypeName name="java.lang.reflect.Constructor"/>
 <fullyQualifiedTypeName name="org.w3c.dom.css.RGBColor"/>
 <fullyQualifiedTypeName name="java.lang.Package"/>
-<fullyQualifiedTypeName name="ch.nte.wro.status.RoboStatus"/>
 <fullyQualifiedTypeName name="ch.nte.wro.sensors.LightIntensitySensorChecker"/>
 <fullyQualifiedTypeName name="ch.nte.wro.main.TrashAufräumen"/>
 <fullyQualifiedTypeName name="ch.nte.wro.motion.StopAtNextLine"/>
@@ -39,7 +38,6 @@
 <fullyQualifiedTypeName name="ch.nte.wro.linefollower.LinefollowerWithTime"/>
 <fullyQualifiedTypeName name="ch.nte.wro.main.TrashAufräumenAndGreen"/>
 <fullyQualifiedTypeName name="ch.nte.wro.motion.ZangeUp"/>
-<fullyQualifiedTypeName name="ch.nte.wro.motion.UnloadLight2"/>
 <fullyQualifiedTypeName name="ch.nte.wro.motion.motorsOnUntilJunction"/>
 <fullyQualifiedTypeName name="ch.nte.wro.linefollower.LinefollowerUntilWhiteGround"/>
 <fullyQualifiedTypeName name="ch.nte.wro.linefollower.LinefollowerUntilJunction"/>
@@ -60,4 +58,6 @@
 <fullyQualifiedTypeName name="lejos.utility.Delay"/>
 <fullyQualifiedTypeName name="ch.nte.wro.motion.motorsOFF"/>
 <fullyQualifiedTypeName name="ch.nte.wro.motion.ZangeDown"/>
+<fullyQualifiedTypeName name="ch.nte.wro.motion.UnloadLight2"/>
+<fullyQualifiedTypeName name="ch.nte.wro.status.RoboStatus"/>
 </qualifiedTypeNameHistroy>

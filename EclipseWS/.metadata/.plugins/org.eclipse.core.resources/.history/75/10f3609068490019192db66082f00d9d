@@ -1,0 +1,90 @@
+package ch.nte.wro.main;
+
+import ch.nte.wro.linefollower.LinefollowerUntilJunction;
+import ch.nte.wro.linefollower.LinefollowerUntilLight;
+import ch.nte.wro.motion.PickUpLight;
+import ch.nte.wro.motion.Turn;
+import ch.nte.wro.motion.ZangeDown;
+import ch.nte.wro.motion.motorsOFF;
+import ch.nte.wro.motion.motorsON;
+import ch.nte.wro.motion.motorsOnUntilJunction;
+import ch.nte.wro.sensors.RGBColorSensorChecker;
+import ch.nte.wro.status.GlobalSensors;
+import ch.nte.wro.status.LightArrangement;
+import lejos.robotics.RegulatedMotor;
+import lejos.utility.Delay;
+
+public class RedAndGreenAufräumen {
+
+	private int speed;
+	private RegulatedMotor mLeft;
+	private RegulatedMotor mRight;
+	private boolean lightA;
+	private boolean lightB;
+	private boolean lightC;
+	private boolean lightD;
+	
+	public RedAndGreenAufräumen(int speed, RegulatedMotor mLeft, RegulatedMotor mRight) {
+		this.speed = speed;
+		this.mLeft = mLeft;
+		this.mRight = mRight;
+		
+		lightA = driveFromK3ToLightA();
+		if(lightA) {
+			if((LightArrangement.lightA.equalsIgnoreCase("red")) && (LightArrangement.area1Red == "black")) {
+				//TODO: Drive to K3
+				unload1LightFromK3inAreaRed();
+				//TODO: Drive to light B
+			} else if(LightArrangement.lightA.equalsIgnoreCase("red") && (LightArrangement.area1Red == null)) {
+				// Check lights until the next red
+				
+			}
+		} else {
+			drive1LightToTheRight();
+		}
+	}
+	
+	private boolean driveFromK3ToLightA() {
+		new motorsON(speed, mLeft, mRight, true);
+		Delay.msDelay((50*500)/speed);
+		new motorsOFF(mLeft, mRight);
+		new Turn(speed, 90, mLeft, mRight);
+		LinefollowerUntilLight lul = new LinefollowerUntilLight(speed, mLeft, mRight, 60);
+		if(lul.isThereALight()) {
+			RGBColorSensorChecker rgb = new RGBColorSensorChecker(GlobalSensors.colorSensorFront);
+			rgb.checkSensor();
+			LightArrangement.lightA = rgb.getColor();
+			new PickUpLight(speed, mLeft, mRight);
+			return true;
+		}
+		LightArrangement.lightA = null;
+		return false;
+	}
+	
+	private boolean drive1LightToTheRight() {
+		new motorsON(speed, mLeft, mRight, false);
+		Delay.msDelay((50*2000)/speed);
+		new motorsOFF(mLeft, mRight);
+		new Turn(speed, -90, mLeft, mRight);
+		new motorsOnUntilJunction(speed, mLeft, mRight, true);
+		new Turn(speed, 90, mLeft, mRight);
+		
+		return false;
+	}
+	
+	private void unload1LightFromK3inAreaRed() {
+		new LinefollowerUntilJunction(speed*2, mLeft, mRight, 60);
+		new LinefollowerUntilJunction(speed*2, mLeft, mRight, 60);
+		new Turn(speed, -70, mLeft, mRight);
+		new motorsON(speed, mLeft, mRight, true);
+		Delay.msDelay((50*100)/speed);
+		new motorsOFF(mLeft, mRight);
+		new ZangeDown();
+		new motorsON(speed, mLeft, mRight, false);
+		Delay.msDelay((50*1000)/speed);
+		new motorsOFF(mLeft, mRight);
+		new Turn(speed, -110, mLeft, mRight);
+		new LinefollowerUntilJunction(speed*2, mLeft, mRight, 60);
+		new LinefollowerUntilJunction(speed, mLeft, mRight, 60);
+	}
+}
