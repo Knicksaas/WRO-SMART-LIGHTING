@@ -79,7 +79,7 @@ public class LinefollowerUntilLight {
 				isThereABlock = true;
 			}
 			
-			if((lLeft.getIntensity() + lRight.getIntensity()) > 1) {
+			if((lLeft.getIntensity() + lRight.getIntensity()) > 0.9) {
 				new motorsOFF(mLeft, mRight);
 				running = false;
 				isThereABlock = false;

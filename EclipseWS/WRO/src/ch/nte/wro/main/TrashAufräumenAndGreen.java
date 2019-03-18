@@ -80,7 +80,7 @@ public class TrashAufräumenAndGreen {
 		new motorsON(speed, mLeft, mRight, true);
 		Delay.msDelay(500);
 		new motorsOFF(mLeft, mRight);
-		new Turn(speed, 90, mLeft, mRight);
+		new Turn(speed, 85, mLeft, mRight);
 		LinefollowerUntilLight lful = new LinefollowerUntilLight(speed, mLeft, mRight, 60);
 		if(lful.isThereALight()) {
 			new motorsON(speed, mLeft, mRight, true);
@@ -109,17 +109,25 @@ public class TrashAufräumenAndGreen {
 		Delay.msDelay(500);
 		new motorsOFF(mLeft, mRight);
 		new Turn(speed, 100, mLeft, mRight);
-		new LinefollowerWithTime(speed, mLeft, mRight, 60, 900);
-		new Turn(speed, -90, mLeft, mRight);
+		new LinefollowerWithTime(speed, mLeft, mRight, 60, 700);
+		new Turn(speed, -70, mLeft, mRight);
 		new LinefollowerWithTime(speed, mLeft, mRight, 60, 500);
-		new UnloadLight2(speed, mLeft, mRight);
+		if(light1Green && light2Green) {
+			new UnloadLight2(speed, mLeft, mRight);
+		} else {
+			new ZangeDown();
+		}
 		new motorsOnUntilJunction(speed*2, mLeft, mRight, false);
 	}
 	
 	private void unloadLightInA1GAndDriveToA1Y() {
+		new motorsON(speed, mLeft, mRight, true);
+		Delay.msDelay((50*1000)/speed);
+		new motorsOFF(mLeft, mRight);
+		new Turn(speed, 70, mLeft, mRight);
 		new LinefollowerUntilWhiteGround(speed, mLeft, mRight, 80);
 		new motorsON(speed, mLeft, mRight, false);
-		Delay.msDelay((50*1000)/speed);
+		Delay.msDelay((50*2000)/speed);
 		new motorsOFF(mLeft, mRight);
 		new ZangeDown();
 		new motorsON(speed, mLeft, mRight, false);
@@ -146,6 +154,9 @@ public class TrashAufräumenAndGreen {
 	private void driveFromA1YtoK2() {
 		new Turn(speed, 180, mLeft, mRight);
 		new LinefollowerUntilHalfJunction(speed, mLeft, mRight, 60);
+		new motorsON(speed, mLeft, mRight, true);
+		Delay.msDelay((50*1000)/speed);
+		new motorsOFF(mLeft, mRight);
 		new LinefollowerUntilHalfJunction(speed, mLeft, mRight, 60);
 		new Turn(speed, 30, mLeft, mRight);
 		new LinefollowerUntilHalfJunction(speed, mLeft, mRight, 60);
@@ -174,6 +185,7 @@ public class TrashAufräumenAndGreen {
 		new motorsOFF(mLeft, mRight);
 		new Turn(speed, 90, mLeft, mRight);
 		new LinefollowerUntilLight(speed*3, mLeft, mRight, 60);
+		new ZangeDown();
 	}
 	
 	private boolean driveToArea1Red() {

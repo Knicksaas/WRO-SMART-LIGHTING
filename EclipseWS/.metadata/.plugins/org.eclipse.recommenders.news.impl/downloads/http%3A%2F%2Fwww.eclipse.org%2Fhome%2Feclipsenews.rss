@@ -9,6 +9,22 @@
       <title>eclipse.org</title>
       <link>http://www.eclipse.org</link>
     </image>
+     <item>
+      <title><![CDATA[Incubation in the Eclipse Development Process]]></title>
+      <link><![CDATA[https://blogs.eclipse.org/post/wayne-beaton/incubation-eclipse-development-process]]></link>
+      <description><![CDATA[The Eclipse Development Process has a notion of phases. Two of those phases are Incubation and Mature.]]></description>
+      <pubDate>Fri, 15 Mar 2019 15:30:00 EST</pubDate>
+      <category>news</category>
+      <pressrelease>0</pressrelease>
+    </item>
+    <item>
+      <title><![CDATA[That's A Wrap, Folks! Thank You for Participating in Our 2019 IoT Developer Survey!]]></title>
+      <link><![CDATA[https://blogs.eclipse.org/post/jameka-woodberry/thats-wrap-folks-thank-you-participating-our-2019-iot-developer-survey]]></link>
+      <description><![CDATA[We are proud to announce that our 2019 IoT Developer Survey, organized by the Eclipse IoT Working Group, was a huge success with over 1,700 responses!]]></description>
+      <pubDate>Mon, 11 Mar 2019 13:40:00 EST</pubDate>
+      <category>news</category>
+      <pressrelease>0</pressrelease>
+    </item>
     <item>
       <title><![CDATA[Eclipse Foundation Specification Process Step-by-Step]]></title>
       <link><![CDATA[https://blogs.eclipse.org/post/wayne-beaton/eclipse-foundation-specification-process-step-step]]></link>
