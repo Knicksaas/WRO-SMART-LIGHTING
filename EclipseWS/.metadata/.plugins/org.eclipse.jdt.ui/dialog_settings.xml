@@ -41,6 +41,8 @@
 		<item value="60" key="DIALOG_X_ORIGIN"/>
 		<item value="-26" key="DIALOG_Y_ORIGIN"/>
 	</section>
+	<section name="BreadcrumbItemDropDown">
+	</section>
 	<section name="ClasspathContainerSelectionPage">
 		<item value="2" key="index"/>
 	</section>

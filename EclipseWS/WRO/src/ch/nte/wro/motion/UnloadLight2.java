@@ -17,16 +17,16 @@ public class UnloadLight2 {
 		RegulatedMotor mZange = new EV3MediumRegulatedMotor(RoboData.zangePort);
 		mZange.setSpeed(1000);
 		mZange.backward();
-		Delay.msDelay(1000);
+		Delay.msDelay(500);
 		mZange.stop();
 		
 		new motorsON(speed, mLeft, mRight, false);
-		Delay.msDelay((50*1000)/speed);
+		Delay.msDelay((50*2000)/speed);
 		new motorsOFF(mLeft, mRight);
 		
 		mZange.setSpeed(1000);
 		mZange.backward();
-		Delay.msDelay(1000);
+		Delay.msDelay(2500);
 		mZange.stop();
 		mZange.close();
 		RoboStatus.zangeUp = true;

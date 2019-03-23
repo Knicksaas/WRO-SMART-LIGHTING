@@ -10,6 +10,6 @@ public class motorsOFF {
 		mRight.setSpeed(0);
 		mLeft.stop();
 		mRight.stop();
-		Delay.msDelay(150);
+		Delay.msDelay(250);
 	}
 }

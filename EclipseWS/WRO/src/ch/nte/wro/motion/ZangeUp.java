@@ -15,7 +15,7 @@ public class ZangeUp {
 		RegulatedMotor mZange = new EV3MediumRegulatedMotor(RoboData.zangePort);
 		mZange.setSpeed(1000);
 		mZange.backward();
-		Delay.msDelay(2000);
+		Delay.msDelay(3000);
 		mZange.stop();
 		mZange.close();
 		RoboStatus.zangeUp = true;
