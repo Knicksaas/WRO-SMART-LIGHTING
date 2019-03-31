@@ -6,15 +6,17 @@ import ch.nte.wro.linefollower.LinefollowerUntilJunction;
 import ch.nte.wro.linefollower.LinefollowerUntilLight;
 import ch.nte.wro.linefollower.LinefollowerUntilWhiteGround;
 import ch.nte.wro.linefollower.LinefollowerWithTime;
+import ch.nte.wro.motion.CountLines;
 import ch.nte.wro.motion.PickUpLight;
 import ch.nte.wro.motion.Turn;
 import ch.nte.wro.motion.TurnWithOneMotor;
-import ch.nte.wro.motion.UnloadLight2;
+import ch.nte.wro.motion.UnloadLightAreaGreen;
 import ch.nte.wro.motion.ZangeDown;
 import ch.nte.wro.motion.ZangeUp;
 import ch.nte.wro.motion.motorsOFF;
 import ch.nte.wro.motion.motorsON;
 import ch.nte.wro.motion.motorsOnUntilJunction;
+import ch.nte.wro.status.GlobalSensors;
 import ch.nte.wro.status.LightArrangement;
 import lejos.hardware.Sound;
 import lejos.robotics.RegulatedMotor;
@@ -65,46 +67,15 @@ public class TrashAufräumenAndGreen {
 		driveFromTrashToK3();
 	}
 	
-	
-	//TODO: Umschreiben
-	private boolean driveToLight1Green() {
+	private void uploadGreenLights() {
 		new LinefollowerUntilJunction(speed*2, mLeft, mRight, 60);
 		new motorsON(speed*2, mLeft, mRight, true);
-		Delay.msDelay(400);
-		new motorsOFF(mLeft, mRight);
+		Delay.msDelay((50*500)/speed*2);
 		new LinefollowerUntilHalfJunction(speed*2, mLeft, mRight, 60);
 		new motorsON(speed, mLeft, mRight, true);
-		Delay.msDelay(500);
-		new motorsOFF(mLeft, mRight);
+		Delay.msDelay((50*700)/speed);
 		new Turn(speed, 85, mLeft, mRight);
-		LinefollowerUntilLight lful = new LinefollowerUntilLight(speed, mLeft, mRight, 60);
-		if(lful.isThereALight()) {
-			new motorsON(speed, mLeft, mRight, true);
-			Delay.msDelay(1500);
-			new motorsOFF(mLeft, mRight);
-			return true;
-		}
-		return false;
-	}
-	
-	private boolean driveToLight2Green() {
-		new motorsON(speed, mLeft, mRight, true);
-		Delay.msDelay(1000);
-		new motorsOFF(mLeft, mRight);
-		LinefollowerUntilLight lful = new LinefollowerUntilLight(speed, mLeft, mRight, 10);
-		if(lful.isThereALight()) {
-			new PickUpLight(speed, mLeft, mRight);
-			return true;
-		}
-		new PickUpLight(speed, mLeft, mRight);
-		return false;
-	}
-	
-	private void uploadGreenLights() {
-		new LinefollowerUntilJunction(speed, mLeft, mRight, 60);
-		new LinefollowerUntilHalfJunction(speed, mLeft, mRight, 60);
-		new Turn(speed, 85, mLeft, mRight);
-		LinefollowerForGreenPickup lffgpu = new LinefollowerForGreenPickup(speed, mLeft, mRight, 60);
+		LinefollowerForGreenPickup lffgpu = new LinefollowerForGreenPickup(speed*2, mLeft, mRight, 80);
 		if(lffgpu.getCountedBlocks() > 1) {
 			LightArrangement.light1Green = "green";
 			LightArrangement.light2Green = "green";
@@ -122,47 +93,45 @@ public class TrashAufräumenAndGreen {
 	}
 	
 	private void unloadInArea2Green() {
-		new LinefollowerUntilWhiteGround(speed*2, mLeft, mRight, 60);
-		new Turn(speed, -10, mLeft, mRight);
-		new LinefollowerUntilJunction(speed*2, mLeft, mRight, 20);
-		new motorsON(speed, mLeft, mRight, true);
-		Delay.msDelay(500);
-		new motorsOFF(mLeft, mRight);
-		new Turn(speed, 100, mLeft, mRight);
-		new LinefollowerWithTime(speed, mLeft, mRight, 60, 700);
+		new CountLines(speed*2, mLeft, mRight, GlobalSensors.colorSensorLeft, 1);
+		new Turn(speed, 90, mLeft, mRight);
+		new motorsOnUntilJunction(speed, mLeft, mRight, false);
+		new LinefollowerWithTime(speed, mLeft, mRight, 60, 750);
 		new Turn(speed, -70, mLeft, mRight);
 		new LinefollowerWithTime(speed, mLeft, mRight, 60, 500);
 		if(light1Green && light2Green) {
-			new UnloadLight2(speed, mLeft, mRight);
+			new UnloadLightAreaGreen(speed, mLeft, mRight);
 		} else {
 			new ZangeDown();
 		}
-		new motorsOnUntilJunction(speed*2, mLeft, mRight, false);
 	}
 	
 	private void unloadLightInA1GAndDriveToA1Y() {
 		new motorsOnUntilJunction(speed, mLeft, mRight, false);
+		new motorsON(speed, mLeft, mRight, true);
+		Delay.msDelay((50*700)/speed);
 		new Turn(speed, 70, mLeft, mRight);
 		new LinefollowerUntilWhiteGround(speed, mLeft, mRight, 80);
 		new motorsON(speed, mLeft, mRight, false);
-		Delay.msDelay((50*2000)/speed);
+		Delay.msDelay((50*3000)/speed);
 		new motorsOFF(mLeft, mRight);
 		new ZangeDown();
 		new motorsON(speed, mLeft, mRight, false);
-		Delay.msDelay((50*2000)/speed);
-		new motorsOFF(mLeft, mRight);
-		new Turn(speed, -45, mLeft, mRight);
-		new LinefollowerUntilHalfJunction(speed, mLeft, mRight, 60);
+		Delay.msDelay((50*3000)/speed);
+		new Turn(speed, -35, mLeft, mRight);
 		new motorsON(speed, mLeft, mRight, true);
 		Delay.msDelay((50*500)/speed);
-		new motorsOFF(mLeft, mRight);
-		new Turn(speed, -45, mLeft, mRight);
-		new LinefollowerUntilLight(speed*3, mLeft, mRight, 60);
+		new CountLines(speed*2, mLeft, mRight, GlobalSensors.colorSensorLeft, 1);
+		new motorsON(speed, mLeft, mRight, true);
+		Delay.msDelay((50*1000)/speed);
+		new Turn(speed, -55, mLeft, mRight);
+		new LinefollowerUntilLight(speed*2, mLeft, mRight, 60);
 		new PickUpLight(speed, mLeft, mRight);
 	}
 	
 	private void driveToA1G() {
-		new Turn(speed, 90, mLeft, mRight);
+		new motorsOnUntilJunction(speed, mLeft, mRight, false);
+		new Turn(speed, 70, mLeft, mRight);
 		new LinefollowerUntilLight(speed, mLeft, mRight, 60);
 		new PickUpLight(speed, mLeft, mRight);
 		new Turn(speed, 180, mLeft, mRight);
@@ -171,17 +140,16 @@ public class TrashAufräumenAndGreen {
 	
 	private void driveFromA1YtoK2() {
 		new Turn(speed, 180, mLeft, mRight);
-		new LinefollowerUntilHalfJunction(speed, mLeft, mRight, 60);
+		new LinefollowerUntilHalfJunction(speed*2, mLeft, mRight, 60);
 		new motorsON(speed, mLeft, mRight, true);
 		Delay.msDelay((50*1000)/speed);
-		new motorsOFF(mLeft, mRight);
-		new LinefollowerUntilHalfJunction(speed, mLeft, mRight, 60);
+		new LinefollowerUntilHalfJunction(speed*2, mLeft, mRight, 60);
+		new LinefollowerWithTime(speed*2, mLeft, mRight, 60, (50*800)/speed);
 		new Turn(speed, 30, mLeft, mRight);
-		new LinefollowerUntilHalfJunction(speed, mLeft, mRight, 60);
-		new motorsON(speed, mLeft, mRight, true);
-		Delay.msDelay((50*700)/speed);
-		new motorsOFF(mLeft, mRight);
-		new Turn(speed, 60, mLeft, mRight);
+		new motorsON(speed*2, mLeft, mRight, true);
+		Delay.msDelay((50*700)/speed*2);
+		new CountLines(speed*2, mLeft, mRight, GlobalSensors.colorSensorLeft, 1);
+		new Turn(speed, 50, mLeft, mRight);
 		new LinefollowerUntilJunction(speed*3, mLeft, mRight, 60);
 		new ZangeDown();
 	}
@@ -228,7 +196,6 @@ public class TrashAufräumenAndGreen {
 		Delay.msDelay((50*2200)/speed);
 		new motorsOFF(mLeft, mRight);
 		new TurnWithOneMotor(speed*2, 90, mLeft, mRight);
-		new LinefollowerUntilJunction(speed*2, mLeft, mRight, 80);
-		new LinefollowerUntilWhiteGround(speed*2, mLeft, mRight, 60);
+		new LinefollowerUntilWhiteGround(speed*2, mLeft, mRight, 80);
 	}
 }

@@ -85,8 +85,7 @@ public class LinefollowerForGreenPickup {
 				whiteFields++;
 				mLeft.setSpeed(speed);
 				mRight.setSpeed(speed);
-				Delay.msDelay(1000);
-				if(whiteFields > 2) {
+				if(whiteFields > 0) {
 					new motorsOFF(mLeft, mRight);
 					running = false;
 				}

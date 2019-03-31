@@ -4,6 +4,7 @@ import ch.nte.wro.sensors.GyroSensorChecker;
 import ch.nte.wro.status.RoboData;
 import lejos.hardware.lcd.LCD;
 import lejos.robotics.RegulatedMotor;
+import lejos.utility.Delay;
 
 public class Turn {
 	
@@ -22,8 +23,7 @@ public class Turn {
 	}
 
 	private void exec() {
-		mRight.setSpeed(speed);
-		mLeft.setSpeed(speed);
+		Delay.msDelay(200);
 		GyroSensorChecker gs = new GyroSensorChecker();
 		gs.checkSensor();
 		anfangswertSensor = gs.getAngle();
@@ -41,8 +41,6 @@ public class Turn {
 				mRight.backward();
 				mLeft.forward();
 			}
-			mRight.setSpeed(speed);
-			mLeft.setSpeed(speed);
 		} else {
 			if(RoboData.invertMotorDirection) {
 				mRight.backward();

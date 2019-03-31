@@ -21,7 +21,7 @@ public class UnloadLight2 {
 		mZange.stop();
 		
 		new motorsON(speed, mLeft, mRight, false);
-		Delay.msDelay((50*2000)/speed);
+		Delay.msDelay((50*1800)/speed);
 		new motorsOFF(mLeft, mRight);
 		
 		mZange.setSpeed(1000);
