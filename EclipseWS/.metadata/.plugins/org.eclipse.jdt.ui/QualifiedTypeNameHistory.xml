@@ -52,12 +52,12 @@
 <fullyQualifiedTypeName name="ch.nte.wro.main.YellowAufräumen"/>
 <fullyQualifiedTypeName name="ch.nte.wro.linefollower.LinefollowerUntilWhiteGround"/>
 <fullyQualifiedTypeName name="ch.nte.wro.main.TrashAufräumenAndGreen"/>
-<fullyQualifiedTypeName name="ch.nte.wro.motion.motorsOnUntilJunction"/>
 <fullyQualifiedTypeName name="ch.nte.wro.motion.motorsOFF"/>
 <fullyQualifiedTypeName name="ch.nte.wro.motion.CountLines"/>
 <fullyQualifiedTypeName name="ch.nte.wro.status.GlobalSensors"/>
 <fullyQualifiedTypeName name="ch.nte.wro.linefollower.LinefollowerWithTime"/>
+<fullyQualifiedTypeName name="ch.nte.wro.motion.UnloadLightAreaGreen"/>
+<fullyQualifiedTypeName name="ch.nte.wro.motion.motorsOnUntilJunction"/>
 <fullyQualifiedTypeName name="ch.nte.wro.motion.motorsON"/>
 <fullyQualifiedTypeName name="lejos.utility.Delay"/>
-<fullyQualifiedTypeName name="ch.nte.wro.motion.UnloadLightAreaGreen"/>
 </qualifiedTypeNameHistroy>
