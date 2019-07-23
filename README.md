@@ -9,16 +9,5 @@ Ich habe mich ein bisschen mit Git auseinandregesetzt und werde es euch bei gele
   - Dem Linefollower wurde ein P-I Regler implementiert und kann jetzt mehr oder weniger der Line folgen.
   - Programmstuktur fertig!
   
-Treffen:  16.2.19 12:04 Baden- Boniswil 12:52
-
-Treffen:  9.3.19-10.3.19 evtl.  
-
-Treffen:  16.3.19 
-
-Treffen:  23.3.19
-
-Treffen:  6.4.19
-
-Treffen:  11.4.19
 
 WRO-Contest: 18.4.19
